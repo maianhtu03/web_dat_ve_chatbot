@@ -1,0 +1,4 @@
+.container { padding: 30px; background: #f4f7f6; min-height: 100vh; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header h1 { font-size: 20px; color: #333; }
+.addBtn { background: #00bfa5; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; }

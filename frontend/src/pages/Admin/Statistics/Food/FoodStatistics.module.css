@@ -1,0 +1,251 @@
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.header h2 {
+    font-size: 20px; /* Ép size chuẩn */
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1e293b;
+    text-transform: uppercase;
+}
+
+
+.filterCard {
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+}
+
+/* Flexbox dàn hàng ngang */
+.filterRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px; /* Rút gọn gap */
+    flex-wrap: nowrap;
+}
+
+.filterItem {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 140px;
+    gap: 6px;
+}
+
+.filterItem label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.filterItem select, 
+.filterItem input {
+    padding: 0 12px;
+    height: 36px; /* Chiều cao chuẩn 36px */
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    background: #fff;
+    color: #1e293b;
+    transition: all 0.2s;
+}
+
+.filterItem select:focus, 
+.filterItem input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+}
+
+/* Nút bấm giống màu trong ảnh */
+.btnLoc {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    height: 36px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnLoc:hover { background-color: #00acc1; }
+.btnLoc:disabled { background-color: #ccc; }
+
+/* Grid biểu đồ */
+.chartGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.chartItem {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.chartItem h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.filterSection {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.inputGroup { display: flex; flex-direction: column; gap: 5px; }
+.inputGroup label { font-size: 0.8rem; font-weight: 600; color: #64748b; }
+.inputGroup input { padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px; }
+
+.btnLoc {
+    background: #4e5d78; color: white; border: none;
+    padding: 8px 20px; border-radius: 6px; cursor: pointer;
+}
+
+/* Chia 3 cột cho Card */
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; /* Giảm gap */
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 16px 20px; /* Ép thẻ lùn xuống */
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+    min-height: 80px;
+}
+
+.cardHeader { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.cardLabel { font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; }
+.cardValue { font-size: 22px; font-weight: 700; color: #1e293b; margin-bottom: 4px; line-height: 1.2; } /* Số to vừa phải */
+.cardSub { font-size: 11px; color: #94a3b8; }
+
+.iconBox { 
+    padding: 8px; 
+    border-radius: 8px; 
+    width: 36px; 
+    height: 36px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.iconBox svg { width: 18px; height: 18px; }
+.bgGreen { background: #e6fffa; color: #38b2ac; }
+.bgBlue { background: #ebf8ff; color: #3182ce; }
+.bgYellow { background: #fffaf0; color: #dd6b20; }
+
+/* Chia 2 cột cho Biểu đồ */
+.chartGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px;
+}
+
+.chartItem {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 8px;
+    height: 360px; /* ÉP CHIỀU CAO: 360px */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.chartItem h3 {
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 16px;
+    font-weight: 600;
+    border-left: 3px solid #00bcd4;
+    padding-left: 10px;
+}
+
+.trendChartFullWidth {
+    grid-column: 1 / -1;
+}
+/* Trend  */
+
+.trendChartSection {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.trendChartSection h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4e73df;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.trendChartContainer {
+    height: 350px; /* Độ cao đủ rộng để nhìn đường trend */
+    width: 100%;
+}
+
+/* Container bọc 2 nút */
+.filterAction {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-wrap: nowrap; /* Cấm rớt dòng */
+}
+
+/* Nút Lọc dữ liệu */
+.btnFilter {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px; /* Bắt buộc bằng height ô input */
+    font-size: 13px;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.btnFilter:hover:not(:disabled) {
+    background-color: #00acc1;
+    transform: translateY(-1px); /* Nảy nhẹ lên khi hover */
+}
+
+.btnFilter:disabled {
+    background-color: #b2ebf2; /* Màu nhạt khi đang loading */
+    cursor: not-allowed;
+}
+
+@media (max-width: 1200px) {
+    .cardGrid { grid-template-columns: repeat(2, 1fr); }
+    .chartGrid { grid-template-columns: 1fr; }
+    .filterRow { flex-wrap: wrap; }
+}

@@ -1,0 +1,1 @@
+export const ROOM_TYPES = ["2D", "3D", "IMAX"];

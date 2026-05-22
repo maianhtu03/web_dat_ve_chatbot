@@ -1,0 +1,155 @@
+.container {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: #fdfdfd;
+    border-bottom: 1px solid #eee;
+    gap: 12px;
+}
+
+.header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #00355a;
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Quan trọng: Căn giữa tất cả các ô theo chiều dọc */
+.table td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle; 
+}
+
+/* Cột Tên Combo */
+.comboInfo {
+    display: flex;
+    align-items: center; /* Căn ảnh và chữ thẳng hàng ngang */
+    gap: 15px;
+}
+
+.comboImg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.comboNameText {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+}
+
+/* Cột Mô tả */
+.descCol {
+    text-align: left;
+    width: 45%;
+}
+
+.description {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.price {
+    color: #00c09d;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Cột Số lượng */
+.qtyCol {
+    width: 120px;
+}
+
+.qtyGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* Sát nhau như mẫu */
+}
+
+.qtyGroup button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+.qtyGroup button:hover {
+    opacity: 0.8;
+}
+
+.btnMinus {
+    background: #adb5bd; /* Màu xám nhạt cho nút trừ */
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.btnPlus {
+    background: #005696; /* Màu xanh đậm cho nút cộng */
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.qtyText {
+    width: 35px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Loading */
+.loading {
+    padding: 40px;
+    text-align: center;
+}
+
+.spin {
+    animation: rotate 1s linear infinite;
+    color: #005696;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

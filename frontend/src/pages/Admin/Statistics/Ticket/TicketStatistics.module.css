@@ -1,0 +1,215 @@
+/* Container chính */
+.container {
+    padding: 20px;
+    background-color: #f4f7fa; 
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Header và Thanh lọc */
+.headerSection {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 20px; /* Ép xuống 20px */
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+}
+
+.filterBar {
+    background: white;
+    padding: 16px 20px; /* Thu nhỏ hộp lọc */
+    border-radius: 8px; /* Bo góc nhẹ nhàng chuẩn Admin */
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: nowrap; /* Ưu tiên nằm ngang */
+    gap: 12px; /* Rút ngắn khoảng cách các ô */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1; /* Chia đều không gian cho các ô input */
+    min-width: 140px;
+}
+
+.inputGroup label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+/* Định dạng chung cho cả Input và Select */
+.inputGroup input, 
+.inputGroup select {
+    padding: 0 12px;
+    height: 36px; /* CHUẨN CÔNG NGHIỆP */
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s;
+    background-color: #fff;
+    width: 100%;
+}
+
+.inputGroup input:focus, 
+.inputGroup select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.inputGroup select:disabled {
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.btnFilter {
+    background-color: #3f51b5; 
+    color: white;
+    padding: 0 16px; /* Chỉnh lại padding ngang cho gọn */
+    border: none;
+    border-radius: 6px; /* Hạ từ 8px xuống 6px cho khớp với ô input */
+    font-weight: 600;
+    font-size: 13px; /* Ép size chữ nhỏ lại cho tinh tế */
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Căn giữa nội dung */
+    gap: 6px; /* Thu hẹp khoảng cách giữa icon và chữ */
+    height: 36px; /* CHUẨN CÔNG NGHIỆP: Hạ từ 42px xuống 36px */
+    white-space: nowrap; /* QUAN TRỌNG: Cấm rớt dòng chữ */
+}
+
+.btnFilter:hover {
+    background-color: #303f9f;
+    box-shadow: 0 4px 6px rgba(63, 81, 181, 0.2);
+    transform: translateY(-1px); /* Thêm hiệu ứng nảy nhẹ lên khi hover cho xịn */
+}
+/* Grid Layout cho các thẻ Stats */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Giảm gap */
+    margin-bottom: 20px;
+}
+
+.statCard {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+}
+
+.statInfo p {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.statInfo h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 8px 0;
+}
+
+.statInfo span {
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* Icon Boxes */
+.iconBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconBox svg {
+    width: 20px;
+    height: 20px;
+}
+.green { background-color: #ecfdf5; color: #10b981; }
+.blue { background-color: #eff6ff; color: #3b82f6; }
+.orange { background-color: #fff7ed; color: #f59e0b; }
+.purple { background-color: #f5f3ff; color: #8b5cf6; }
+
+/* Khu vực biểu đồ */
+.chartsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.chartWrapper {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    height: 450px; /* Thay min-height bằng height cố định */
+    display: block; /* Đổi từ flex sang block để ổn định hơn cho Recharts */
+    position: relative;
+}
+
+.fullWidthChartWrapper {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    height: 360px; /* Hạ từ 500px xuống 360px */
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Đảm bảo biểu đồ bên trong chiếm hết diện tích */
+.chartWrapper > div, 
+.fullWidthChartWrapper > div {
+    flex: 1;
+    width: 100% !important;
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+@media (max-width: 1200px) {
+    .statsGrid { grid-template-columns: repeat(2, 1fr); }
+    .chartsGrid { grid-template-columns: 1fr; }
+    .filterBar { flex-wrap: wrap; }
+}

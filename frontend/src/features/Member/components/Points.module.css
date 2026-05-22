@@ -1,0 +1,63 @@
+.container {
+    padding: 20px 0;
+    color: #333;
+}
+
+.title {
+    font-size: 1.3rem;
+    color: #004b91;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.overview {
+    margin-bottom: 40px;
+}
+
+.infoGrid {
+    max-width: 450px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.95rem;
+}
+
+.value {
+    font-weight: 600;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.plusPoints {
+    color: #333;
+    font-weight: bold;
+}
+
+.empty {
+    padding: 30px !important;
+    color: #999;
+}

@@ -1,0 +1,255 @@
+.footer {
+    background-color: #005596; /* Màu xanh đậm thương hiệu MTU */
+    color: white;
+    padding: 60px 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 350px; /* Chia 3 phần lớn */
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.columnTitle {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Chia danh sách rạp thành 2 cột nhỏ bên trong */
+.cinemaGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 30px;
+    font-size: 13px;
+}
+
+.cinemaItem {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.cinemaItem:hover {
+    color: #f5b50a;
+}
+
+.logo {
+    max-width: 160px;
+    margin-bottom: 25px;
+}
+
+.verticalList {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.socialGroup {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 50px;
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+.verified {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; /* Căn trái theo cột thông tin */
+}
+
+.verified img {
+    /* Đặt chiều rộng cố định hoặc tối đa để ảnh không bị tràn */
+    width: 150px; 
+    height: auto; /* Giữ đúng tỷ lệ ảnh, không bị méo */
+    
+    /* Thêm hiệu ứng một chút cho chuyên nghiệp */
+    object-fit: contain;
+    filter: brightness(0.9); /* Hơi tối lại một chút để tiệp với nền xanh */
+    transition: filter 0.3s ease;
+}
+
+.verified img:hover {
+    filter: brightness(1); /* Sáng lên khi di chuột vào */
+    cursor: pointer;
+}
+
+
+.cinemaItem {
+    display: block; /* Đảm bảo link chiếm không gian để dễ click */
+    color: white; /* Giữ màu trắng như text thông thường */
+    text-decoration: none; /* Bỏ gạch chân mặc định của thẻ a */
+    font-size: 13px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cinemaItem:hover {
+    color: #f5b50a; /* Đổi sang màu vàng khi hover giống mẫu Beta */
+    padding-left: 5px; /* Hiệu ứng nhích sang phải một chút khi hover cho sinh động */
+}
+
+/* Đảm bảo link trong Footer không bị đổi màu khi đã click (visited) */
+.cinemaItem:visited {
+    color: white;
+}
+/* Container của nút */
+.scrollTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    border: 2px solid #ff8a8a; /* Màu hồng nhạt giống ảnh bạn gửi */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff8a8a;
+    cursor: pointer;
+    z-index: 1000;
+    
+    /* Hiệu ứng ẩn hiện */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Khi đủ điều kiện hiển thị */
+.scrollTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hiệu ứng hover cho chuyên nghiệp */
+.scrollTop:hover {
+    background-color: #ff8a8a;
+    color: white;
+    transform: translateY(-5px); /* Nhích nhẹ lên trên khi hover */
+}
+
+.scrollTop svg {
+    font-size: 20px;
+}
+
+
+/* ============================================================
+   PHẦN RESPONSIVE BỔ SUNG (KHÔNG SỬA LOGIC CŨ)
+   ============================================================ */
+
+/* 1. Cho màn hình Laptop nhỏ và Tablet xoay ngang */
+@media (max-width: 1200px) {
+    .container {
+        gap: 30px;
+        grid-template-columns: 180px 1fr 300px;
+    }
+}
+
+/* 2. Cho màn hình Tablet (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        /* Chuyển sang 2 cột: Cột 1 và 2 bên trái, Cột 3 nhảy xuống hoặc thu hẹp */
+        grid-template-columns: 200px 1fr;
+        gap: 40px;
+    }
+    
+    .columnContact {
+        grid-column: span 2; /* Cột liên hệ chiếm hết chiều ngang hàng dưới */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Chia đôi thông tin công ty và kết nối */
+        gap: 20px;
+    }
+
+    .verified {
+        justify-content: flex-end; /* Ảnh bộ công thương đẩy sang phải */
+    }
+}
+
+/* 3. Cho màn hình Mobile lớn/Tablet đứng (Dưới 768px) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Tất cả thành 1 cột dọc */
+        gap: 35px;
+    }
+
+    .columnContact {
+        grid-column: span 1;
+        grid-template-columns: 1fr; /* Thông tin liên hệ xếp chồng dọc */
+    }
+
+    .columnMain {
+        text-align: center;
+    }
+
+    .logo {
+        margin: 0 auto 20px;
+    }
+
+    .verticalList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px; /* Chuyển menu giới thiệu thành hàng ngang */
+    }
+
+    .cinemaGrid {
+        grid-template-columns: 1fr 1fr; /* Vẫn giữ 2 cột rạp cho đỡ dài trang */
+    }
+
+    .verified {
+        justify-content: center;
+    }
+}
+
+/* 4. Cho màn hình Mobile siêu nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .cinemaGrid {
+        grid-template-columns: 1fr; /* Rạp xếp 1 cột dọc cho dễ bấm */
+    }
+
+    .socialGroup {
+        justify-content: center;
+    }
+
+    .columnTitle {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .companyInfo p {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .appDownload {
+        text-align: center;
+    }
+    
+    .scrollTop {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}

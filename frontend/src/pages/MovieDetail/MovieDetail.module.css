@@ -1,0 +1,530 @@
+.pageWrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.mainContent {
+    display: grid;
+    grid-template-columns: 274px 1fr; 
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+}
+
+.posterSection {
+    width: 100%; 
+    position: relative;
+    aspect-ratio: 2 / 3; 
+    border-radius: 15px; 
+    overflow: hidden;
+    background-color: #f0f0f0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.mainPoster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ageIconBadge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    z-index: 10;
+}
+
+.ageIconBadge img {
+    width: 100%;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Info Section */
+.movieTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.description {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.detailsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detailItem {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    font-size: 15px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 8px;
+}
+
+.detailItem strong { color: #333; }
+
+/* =========================================
+   PHẦN LỊCH CHIẾU (SHOWTIME SECTION) 
+   ========================================= */
+
+.showtimeSection {
+    margin: 40px 0;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.showtimeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-left: 5px solid #0056b3;
+    padding-left: 15px;
+}
+
+.sectionTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.currentCinema {
+    font-size: 14px;
+    color: #666;
+}
+
+.currentCinema strong { color: #0056b3; }
+
+/* Date Selector */
+.dateSelector {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.dateItem {
+    min-width: 80px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+}
+
+.dateItem:hover {
+    background: #eef4ff;
+    border-color: #0056b3;
+}
+
+.activeDate {
+    background: #0056b3 !important;
+    color: #fff !important;
+    border-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,86,179,0.3);
+}
+
+.dateText {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.dayText {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Showtime Grid */
+.formatLabel {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.timeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+}
+.timeCardWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa ghế trống theo nút */
+    gap: 8px;
+}
+.timeCard {
+    width: 100%; /* Đảm bảo nút vẫn đủ rộng */
+    background: #f4f7fa;
+    border: 1px solid #e1e8ed;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.emptySeatsOutside {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+}
+
+.timeCard:hover {
+    background: #fff;
+    border-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.timeValue {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0056b3;
+}
+
+.seatCount {
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+}
+
+.noShowtimes {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    background: #fdfdfd;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+}
+
+/* Trailer */
+.trailerSection {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+.trailerTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 20px auto 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background-color: #000;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 100px;
+    font-size: 18px;
+    color: #666;
+}
+
+
+
+/* Modal Overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Nền tối mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Modal Box */
+.modalContainer {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modalClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modalHeading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.modalMovieTitle {
+    font-size: 24px;
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Bảng thông tin trong modal */
+.modalTable {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.modalRow {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.modalRow:last-child {
+    border-bottom: none;
+    background-color: #f9f9f9;
+}
+
+.modalCol {
+    flex: 1;
+    padding: 12px;
+    border-right: 1px solid #ddd;
+}
+
+.modalCol:last-child {
+    border-right: none;
+}
+
+.modalNote {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Nút bấm */
+.modalFooter {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btnCancel {
+    padding: 10px 30px;
+    border: 1px solid #0056b3;
+    background: #fff;
+    color: #0056b3;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnConfirm {
+    padding: 10px 30px;
+    border: none;
+    background: #0056b3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btnConfirm:hover {
+    background: #004494;
+}
+
+/* ============================================================
+   PHẦN RESPONSIVE CHO TRANG CHI TIẾT PHIM
+   ============================================================ */
+
+/* 1. Màn hình Tablet & Laptop nhỏ (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .mainContent {
+        grid-template-columns: 240px 1fr; /* Thu nhỏ cột poster một chút */
+        gap: 30px;
+    }
+
+    .movieTitle {
+        font-size: 26px;
+    }
+
+    .detailItem {
+        grid-template-columns: 120px 1fr; /* Thu hẹp cột tiêu đề chi tiết */
+    }
+}
+
+/* 2. Màn hình Mobile lớn & Tablet đứng (Dưới 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .mainContent {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột dọc */
+        gap: 20px;
+    }
+
+    /* Đưa poster ra giữa và thu nhỏ lại để không chiếm hết màn hình */
+    .posterSection {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .movieTitle {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .description {
+        text-align: justify;
+    }
+
+    .showtimeSection {
+        padding: 20px 15px;
+    }
+
+    .showtimeHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .timeGrid {
+        /* Mobile hiển thị 2 hoặc 3 cột suất chiếu tùy độ rộng */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    /* Modal - Làm cho bảng thông tin dễ nhìn hơn trên mobile */
+    .modalContainer {
+        padding: 25px 15px;
+        width: 95%;
+    }
+
+    .modalMovieTitle {
+        font-size: 18px;
+    }
+
+    .modalFooter {
+        flex-direction: column-reverse; /* Nút xác nhận lên trên nút hủy */
+        gap: 10px;
+    }
+
+    .btnConfirm, .btnCancel {
+        width: 100%;
+    }
+}
+
+/* 3. Màn hình Mobile nhỏ (Dưới 480px) */
+@media (max-width: 480px) {
+    .breadcrumb {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .detailItem {
+        grid-template-columns: 1fr; /* Tiêu đề và nội dung chi tiết xếp chồng lên nhau */
+        gap: 2px;
+        padding-bottom: 12px;
+    }
+
+    .detailItem strong {
+        font-size: 13px;
+        color: #888;
+    }
+
+    .dateItem {
+        min-width: 70px;
+        padding: 8px;
+    }
+
+    .dateText {
+        font-size: 16px;
+    }
+
+    .timeValue {
+        font-size: 16px;
+    }
+
+    .emptySeatsOutside {
+        font-size: 11px;
+    }
+
+    /* Thu nhỏ trailer cho vừa màn hình điện thoại */
+    .trailerTitle {
+        font-size: 18px;
+    }
+
+    .modalCol {
+        padding: 8px;
+        font-size: 13px;
+    }
+}

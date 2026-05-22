@@ -1,0 +1,404 @@
+/* Layout tổng thể */
+.editorPage {
+    padding: 10px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+}
+
+.pageTitle {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #334155;
+    font-weight: 700;
+}
+
+.mainContent {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* 1. KHU VỰC BÊN TRÁI (EDITOR) */
+.editorArea {
+    flex: 1 1 0%;
+    min-width: 0; 
+    overflow: hidden; 
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    width: 70%; 
+    max-width: 600px;
+    height: 45px;
+    background: #e2e8f0;
+    margin: 0 auto 0 auto; 
+    border-bottom: 6px solid #94a3b8;
+    border-radius: 50% / 0 0 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.gridContainer {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0;
+    display: flex; /* Thêm flex để căn giữa grid */
+    justify-content: flex-start;
+}
+
+/* Custom Scrollbar */
+.gridContainer::-webkit-scrollbar { height: 8px; }
+.gridContainer::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.gridContainer::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.gridContainer::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.grid {
+    display: inline-block; /* Quan trọng: Để grid nở theo nội dung */
+    margin: 0 auto; /* Căn giữa grid khi nó nhỏ hơn container */
+    padding: 0 20px; /* Tạo khoảng trống an toàn hai bên */
+    min-width: max-content;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 5px;
+    /* Bỏ width: 100% */
+    /* Bỏ justify-content: center */
+    width: fit-content;
+}
+
+.extraOdd {
+    display: none !important;
+}
+
+.rowLabel, .colHeader {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+/* --- ĐỊNH DẠNG GHẾ CHUNG --- */
+.seat {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    /* Mặc định cho tất cả ghế là không có ảnh nền */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: 1px solid transparent;
+}
+.seat.normal, .seat.vip, .seat.couple {
+    background-color: transparent;
+    border: 1px dashed #cbd5e1; /* VIỀN HIỆN Ở ĐÂY */
+}
+
+.seat:hover {
+    transform: translateY(-2px);
+    filter: contrast(1.2);
+}
+
+/* --- TRẠNG THÁI ACTIVE: HIỆN ICON (Đã đảo ngược) --- */
+.seat.normal { background-image: url('../../../../assets/images/seat-unselect-normal.png'); background-color: transparent; }
+.seat.vip { background-image: url('../../../../assets/images/seat-unselect-vip.png'); background-color: transparent; }
+.seat.couple { 
+    background-image: url('../../../../assets/images/seat-unselect-double.png'); 
+    background-color: transparent;
+    background-size: 70% !important;
+ }
+
+/* LOGIC GHẾ ĐÔI GỘP */
+.betaCoupleBlock {
+    width: calc(35px * 2 + 5px) !important; 
+    border-radius: 6px;
+    background-size: 100% 100% !important;
+}
+
+.seatLabel {
+    font-size: 11px; /* Nhỏ lại một chút để vừa icon */
+    font-weight: 800;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Tránh cản trở sự kiện click */
+    transition: all 0.2s;
+}
+.seat.hidden .seatLabel {
+    color: white !important;
+    font-size: 18px; /* Dấu + to rõ ràng */
+}
+.viewMode .seatLabel {
+    color: #475569 !important; /* Màu xám đậm để dễ đọc trên icon */
+    position: absolute;
+    top: 2px; /* Đẩy chữ lên phía trên đầu icon */
+    font-size: 9px !important;
+}
+/* --- TRẠNG THÁI HIDDEN: HIỆN MÀU NỀN (Đã đảo ngược) --- */
+.seat.hidden {
+    background-image: none !important; /* Xóa icon */
+    
+}
+
+/* Khi là ô trống thì hiện màu để phân biệt loại ghế sẽ đặt */
+.seat.normal.hidden { background-color: #ffb74d !important; } 
+.seat.vip.hidden { background-color: #3f51b5 !important; }    
+.seat.couple.hidden { background-color: #26a69a !important; }
+
+/* KHI XUẤT BẢN: Ô Hidden biến mất hoàn toàn */
+.publishedHidden {
+    visibility: hidden !important; /* Giữ nguyên kích thước và vị trí nhưng không hiển thị */
+    pointer-events: none;          /* Không cho tương tác click */
+}
+
+/* 2. KHU VỰC BÊN PHẢI (SIDEBAR) */
+.sidebar {
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #eef0f7;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.cardHeader {
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f3f9;
+}
+
+.cardBody { padding: 15px; }
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.statusText { color: #a3aed0; font-weight: 500; }
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btnSaveDraft, .btnPublish {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSaveDraft { background-color: #f1f3f9; color: #475569; }
+.btnPublish { background-color: #4f46e5; color: white; }
+
+.btnSaveDraft:hover { background-color: #e2e8f0; color: #1e293b; }
+.btnPublish:hover { 
+    background-color: #4338ca; 
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+/* Nút hành động hàng */
+.rowActions { display: flex; gap: 4px; margin-left: 10px; }
+.btnAddRow, .btnRemoveRow {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+.btnAddRow { background-color: #3f51b5; }
+.btnRemoveRow { background-color: #ef5350; }
+
+/* Legend (Chú thích) */
+.legendItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+.legendLabel {
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+}
+.legendIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.colorBox {
+    width: 24px;   /* Kích thước ô màu, cân bằng với icon */
+    height: 24px;
+    border-radius: 4px; /* Viền bo nhẹ cho đẹp */
+    flex-shrink: 0;   /* Không cho ô màu bị co */
+}
+
+.colorBox.normal { background-color: #ffb74d; } /* Cam cho Ghế Thường */
+.colorBox.vip { background-color: #3f51b5; }    /* Xanh đậm cho Ghế VIP */
+.colorBox.couple { background-color: #26a69a; } /* Xanh ngọc cho Ghế Đôi */
+
+.iconBox,
+.publishedMode .iconBox {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa ô màu và icon */
+}
+.publishedMode .colorBox {
+    display: none !important;
+}
+
+.totalSeatsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f3f9;
+    padding-top: 15px;
+    margin-top: 5px;
+    color: #1e293b; /* Màu chữ đậm hơn cho nổi bật */
+}
+/* Chế độ xem Mode (Published) */
+.viewMode {
+    border: none !important;
+    background-color: #ffffff !important;
+}
+
+.seatViewMode {
+    border: none !important;
+    cursor: default !important;
+    transform: none !important;
+}
+
+/* Nhãn ghế khi xuất bản nằm gọn trên icon */
+.seatViewMode .seatLabel {
+    color: #475569 !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    position: absolute;
+    top: 2px;
+}
+
+/* --- MODAL THÀNH CÔNG --- */
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+.modalContent {
+    background: white;
+    padding: 30px 50px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: zoomIn 0.3s ease-out;
+}
+
+.successIcon {
+    width: 80px; height: 80px;
+    border: 3px solid #bbf7d0;
+    border-radius: 50%;
+    color: #22c55e;
+    font-size: 40px;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.modalContent h3 { font-size: 24px; color: #1e293b; margin-bottom: 10px; }
+.modalContent p { color: #64748b; margin-bottom: 25px; }
+
+.btnOk {
+    background-color: #c7d2fe;
+    color: #4f46e5;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Ẩn các tiêu đề khi xuất bản */
+.viewMode .colHeader, 
+.viewMode .rowLabel,
+.viewMode .actionHeader,
+.viewMode .rowActions {
+    display: none !important;
+}
+
+.totalSeatsRow {
+    border-top: 1px solid #f1f3f9;
+    padding-top: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+}

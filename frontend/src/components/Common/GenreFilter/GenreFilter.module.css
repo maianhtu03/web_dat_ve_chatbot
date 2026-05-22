@@ -1,0 +1,79 @@
+.filterWrapper {
+    width: 100%;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding: 10px 0;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filterWrapper::-webkit-scrollbar { display: none; }
+
+.genreList {
+    display: flex;
+    gap: 12px;
+    padding: 0 15px;
+    /* Căn giữa tuyệt đối khi danh sách ngắn */
+    margin: 0 auto; 
+    /* Đảm bảo danh sách không bị co lại khi màn hình nhỏ */
+    min-width: max-content; 
+}
+
+.genreBtn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.genreBtn.active {
+    background-color: #f0f7ff; /* Nền xanh dương cực nhẹ */
+    border-color: #007bff;     /* Viền xanh dương (màu của tab ĐANG CHIẾU) */
+    color: #007bff;            /* Chữ xanh dương trùng màu viền */
+    font-weight: 600;          /* Chữ đậm hơn một chút để nổi bật */
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15); /* Đổ bóng nhẹ cho đẹp */
+}
+
+.genreBtn:hover:not(.active) {
+    border-color: #bbb;
+    background-color: #f9f9f9;
+}
+
+/* --- RESPONSIVE TẠI CÁC ĐIỂM --- */
+
+@media (max-width: 1024px) {
+    .genreBtn {
+        padding: 7px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .genreList {
+        gap: 10px;
+        /* Trên mobile, nếu bạn muốn cuộn từ trái qua thì đổi auto thành 0 */
+        /* Nếu vẫn muốn căn giữa, hãy giữ nguyên margin: 0 auto */
+        margin: 0 auto; 
+    }
+    .genreBtn {
+        padding: 6px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .genreList {
+        gap: 8px;
+        /* Mobile nhỏ: Thường sẽ tràn, margin auto sẽ tự động đưa về lề trái */
+        margin: 0 auto; 
+    }
+    .genreBtn {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,10 @@
+.overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal { background: white; width: 600px; border-radius: 8px; padding: 25px; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px; }
+.formGroup { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px; }
+input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+.footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.btnSubmit { background: #00bfa5; color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; }
+.btnCancel { background: #fff; border: 1px solid #ddd; padding: 10px 25px; border-radius: 4px; }

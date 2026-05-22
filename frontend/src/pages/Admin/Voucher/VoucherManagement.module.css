@@ -1,0 +1,28 @@
+.pageWrapper {
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.headerTitle {
+    margin-bottom: 10px;
+}
+
+.headerTitle h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #212b36;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.divider {
+    height: 1px;
+    background-color: rgba(145, 158, 171, 0.2);
+    margin: 15px 0 25px 0;
+}
+
+.content {
+    /* Đảm bảo nội dung con không bị dính sát lề */
+    width: 100%;
+}

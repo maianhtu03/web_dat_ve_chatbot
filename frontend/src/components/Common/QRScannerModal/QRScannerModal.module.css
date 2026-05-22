@@ -1,0 +1,197 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Làm tối nền để tập trung vào camera */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Luôn nằm trên cùng */
+    backdrop-filter: blur(4px);
+}
+
+.modalContent {
+    background: #ffffff;
+    width: 450px; /* Thu hẹp chiều ngang một chút cho cân đối */
+    max-width: 95%;
+    max-height: 90vh; /* QUAN TRỌNG: Không vượt quá 90% chiều cao màn hình */
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column; /* Để các phần con sắp xếp theo chiều dọc */
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modalHeader {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1b2559;
+    font-weight: 700;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #a3aed0;
+    transition: color 0.2s;
+}
+
+.closeBtn:hover {
+    color: #ff4d4d;
+}
+
+.modalBody {
+    padding: 15px; /* Giảm padding */
+    text-align: center;
+    overflow-y: auto; /* Nếu nội dung vẫn dài thì sẽ cho phép cuộn bên trong modal */
+}
+/* Khống chế khung quét mã */
+#reader {
+    border: none !important;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100% !important;
+    max-width: 320px; /* Giới hạn chiều rộng khung quét */
+    margin: 0 auto; /* Căn giữa */
+}
+
+#reader img {
+    display: none; /* Ẩn các icon mặc định của thư viện nếu muốn */
+}
+#reader video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 250px; /* Giới hạn chiều cao video */
+    object-fit: cover;
+}
+
+.hint {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #707eae;
+}
+
+.modalFooter {
+    padding: 15px 20px;
+    background-color: #f8f9ff;
+    text-align: center;
+}
+
+.stopBtn {
+    background-color: #ffffff;
+    border: 1px solid #e0e5f2;
+    padding: 10px 24px;
+    border-radius: 10px;
+    color: #ff4d4d;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.stopBtn:hover {
+    background-color: #ff4d4d;
+    color: white;
+    border-color: #ff4d4d;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 1. MỨC TABLET DƯỚI 1024PX (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .modalContent {
+        width: 400px; /* Thu gọn nhẹ chiều ngang trên các máy tính bảng đứng */
+        max-height: 85vh; /* Thu gọn chiều cao tối đa đề phòng bàn phím ảo đẩy lên */
+    }
+
+    #reader {
+        max-width: 280px; /* Bóp nhỏ khung quét QR lại một chút */
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px) */
+@media (max-width: 767px) {
+    .modalOverlay {
+        padding: 10px; /* Tạo khoảng trống đệm an toàn đề phòng các góc máy bo tròn */
+    }
+
+    .modalContent {
+        width: 92%; /* Chuyển hoàn toàn sang đơn vị % để tự co giãn khít viền điện thoại */
+        border-radius: 12px; /* Giảm bo góc một chút cho rộng rãi diện tích bên trong */
+    }
+
+    .modalHeader {
+        padding: 15px; /* Thu hẹp khoảng không gian Header để nhường đất cho Camera */
+    }
+
+    .modalHeader h3 {
+        font-size: 16px; /* Hạ size chữ tiêu đề */
+    }
+
+    .modalBody {
+        padding: 15px 10px;
+    }
+
+    /* ÉP CHẶT LUỒNG VIDEO CAMERA TRÊN ĐIỆN THOẠI */
+    #reader {
+        max-width: 100% !important; /* Cho phép khung nhận diện bung hết 100% lề */
+        width: 100% !important;
+    }
+
+    #reader video {
+        max-height: 220px; /* Giới hạn chiều cao video chặt hơn để đẩy nút Hủy lên trên tầm mắt */
+        border-radius: 8px; /* Bo tròn góc luồng camera nhìn cho hiện đại */
+    }
+
+    .hint {
+        font-size: 13px;
+        line-height: 1.4;
+        margin-top: 12px;
+        padding: 0 5px;
+    }
+
+    .modalFooter {
+        padding: 12px 15px;
+    }
+
+    .stopBtn {
+        width: 100%; /* Biến nút Hủy bỏ thành dạng Block dài full viền để dễ thao tác chạm ngón cái */
+        padding: 12px 0;
+        font-size: 15px;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px) */
+@media (max-width: 480px) {
+    .modalContent {
+        width: 95%; /* Trải rộng tối đa trên các dòng máy màn hình hẹp như iPhone SE */
+        max-height: 95vh;
+    }
+
+    .modalHeader {
+        padding: 12px 10px;
+    }
+
+    #reader video {
+        max-height: 180px; /* Bóp chiều cao video camera xuống mức tối thiểu tránh lỗi đẩy lọt footer */
+    }
+
+    .hint {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}

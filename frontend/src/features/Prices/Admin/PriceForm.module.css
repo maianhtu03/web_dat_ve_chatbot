@@ -1,0 +1,152 @@
+.formContainer {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf2f7;
+  max-width: 600px; /* Khống chế độ rộng để form không bị loãng */
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 24px;
+  border-left: 5px solid #0054a3;
+  padding-left: 12px;
+  line-height: 1.2;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column; /* Chuyển sang Flex để các hàng dọc trông gọn hơn cho Modal */
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+/* Style cho các ô chọn và nhập liệu */
+.input, .select {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+}
+
+.input:focus, .select:focus {
+  border-color: #0054a3;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 84, 163, 0.1);
+  outline: none;
+}
+
+/* --- PHẦN MULTI-SELECT TAGS (MỚI) --- */
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px dashed #cbd5e0;
+  border-radius: 8px;
+  background: #fdfdfd;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: #edf2f7;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tag:hover {
+  border-color: #0054a3;
+  color: #0054a3;
+  background: #ebf8ff;
+}
+
+.tagActive {
+  background: #0054a3 !important;
+  color: #ffffff !important;
+  border-color: #0054a3 !important;
+  box-shadow: 0 2px 4px rgba(0, 84, 163, 0.2);
+}
+
+.tagClose {
+  margin-left: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* --- PHẦN NHẬP GIÁ TIỀN --- */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper .input {
+  width: 100%;
+  padding-right: 50px; /* Chừa chỗ cho đơn vị VNĐ */
+}
+
+.currencyUnit {
+  position: absolute;
+  right: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a0aec0;
+  pointer-events: none;
+}
+
+.helperText {
+  color: #718096;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* --- NÚT BẤM --- */
+.submitBtn {
+  margin-top: 10px;
+  background: #0054a3;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 84, 163, 0.15);
+}
+
+.submitBtn:hover {
+  background: #004485;
+  box-shadow: 0 6px 12px rgba(0, 84, 163, 0.2);
+  transform: translateY(-2px);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}

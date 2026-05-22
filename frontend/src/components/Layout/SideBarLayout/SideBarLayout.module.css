@@ -1,0 +1,68 @@
+.wrapper {
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    /* CHỈNH SỬA TẠI ĐÂY: Sử dụng tỷ lệ phần trăm hoặc fr để cân đối hơn */
+    /* 2fr 1fr nghĩa là bên trái chiếm 66%, bên phải chiếm 33% */
+    grid-template-columns: 2fr 1fr; 
+    gap: 50px; /* Tăng khoảng cách giữa 2 cột để thoáng hơn */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.mainContent {
+    min-width: 0;
+}
+
+.sidebar {
+    /* Tạo đường kẻ ngăn cách nhẹ nhàng như mẫu */
+    border-left: 1px solid #f0f0f0;
+    padding-left: 30px;
+}
+
+/* 1. LAPTOP NHỎ & TABLET NGANG (1025px - 1200px) */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 280px; 
+        gap: 25px;
+        padding: 25px 20px;
+    }
+    .sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px)
+   Chính thức gãy cột: Đẩy Sidebar (Phim Hot) xuống dưới cùng, MainContent tràn 100% lên trên */
+@media (max-width: 767px) {
+    .container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột xếp dọc */
+        gap: 35px;
+        padding: 20px 15px;
+    }
+    
+    .sidebar {
+        border-left: none; /* Xóa vạch kẻ đứng của PC */
+        padding-left: 0;
+        border-top: 1px dashed #e2e8f0; /* Thay bằng đường kẻ ngang phân tách tinh tế */
+        padding-top: 25px;
+        margin-top: 5px;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px)
+   Thu hẹp tối đa khoảng trống đệm hai bên viền để card phim có đất hiển thị to nhất */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 10px; 
+        gap: 25px;
+    }
+    .sidebar {
+        padding-top: 20px;
+    }
+}

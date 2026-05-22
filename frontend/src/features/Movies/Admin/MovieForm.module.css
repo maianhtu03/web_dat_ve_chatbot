@@ -1,0 +1,144 @@
+.form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.threeColRow {
+    grid-column: span 2; /* Trải rộng hết chiều ngang của lưới 2 cột */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Chia đều làm 3 cột bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các ô */
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.inputGroup input, .inputGroup select, .inputGroup textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.inputGroup textarea {
+    resize: vertical;
+}
+
+.inputGroupFull {
+    grid-column: span 2;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.checkboxGroup input {
+    width: auto;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btnSave {
+    background-color: #1a237e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnSave:hover {
+    background-color: #cc0000;
+}
+
+.switchContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Màu xanh khi bật (Đồng bộ với màu nút gạt ở bảng Admin) */
+.switch input:checked + .slider {
+    background-color: #1a237e;
+}
+
+/* Hiệu ứng trượt viên bi khi bật */
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Text hiển thị trạng thái bên cạnh nút gạt */
+.switchText {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+}
+
+.btnCancel {
+    background-color: #f5f5f5;
+    color: #666;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}

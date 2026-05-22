@@ -1,0 +1,397 @@
+/* MovieShowtimeModal.module.css */
+
+/* Overlay phủ toàn màn hình */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Container chính của Modal */
+.modalContainer {
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px; /* Rộng hơn một chút để chứa lịch chiếu */
+    padding: 30px;
+    border-radius: 15px; /* Bo góc giống showtimeSection */
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- PHẦN HEADER MODAL --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-left: 5px solid #0056b3;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.headerTitle h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.cinemaName {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+.closeBtn {
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+}
+
+/* --- SELECTOR NGÀY (Giống hệt Detail) --- */
+.dateSelector {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.dateItem {
+    min-width: 80px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+}
+
+.dateItem:hover {
+    background: #eef4ff;
+    border-color: #0056b3;
+}
+
+.activeDate {
+    background: #0056b3 !important;
+    color: #fff !important;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,86,179,0.3);
+}
+
+.dateText {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.dayText {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+/* --- LỊCH CHIẾU (Giống hệt Detail) --- */
+.typeTitle {
+    font-size: 1.4rem;
+    color: #0056b3;
+    border-left: 5px solid #0056b3;
+    padding-left: 10px;
+    margin: 20px 0 15px 0;
+}
+
+.formatLabel {
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.timeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.timeCard {
+    background: #f4f7fa;
+    border: 1px solid #e1e8ed;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.timeCard:hover {
+    background: #fff;
+    border-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.timeValue {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0056b3;
+}
+
+.roomName {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* --- MODAL XÁC NHẬN (CONFIRM) --- */
+.confirmContent {
+    text-align: center;
+    padding: 10px;
+}
+
+.modalHeading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.modalMovieTitle {
+    font-size: 24px;
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.modalTable {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.modalRow {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.modalRow:last-child {
+    border-bottom: none;
+    background-color: #f9f9f9;
+}
+
+.modalCol {
+    flex: 1;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.modalCol:last-child {
+    border-right: none;
+}
+
+.modalNote {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.modalFooter {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btnCancel {
+    padding: 12px 35px;
+    border: 1px solid #0056b3;
+    background: #fff;
+    color: #0056b3;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btnConfirm {
+    padding: 12px 35px;
+    border: none;
+    background: #0056b3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btnConfirm:hover {
+    background: #004494;
+    transform: translateY(-2px);
+}
+
+.noShowtimes {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    background: #fdfdfd;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+}
+.modalClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE CHO MOVIE SHOWTIME MODAL --- */
+
+/* 1. TABLET (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .modalContainer {
+        width: 95%; /* Mở rộng chiều rộng modal trên máy tính bảng */
+        padding: 20px;
+    }
+
+    .headerTitle h3 {
+        font-size: 18px;
+    }
+
+    .modalMovieTitle {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* 2. MOBILE CHUẨN (Dưới 768px) */
+@media (max-width: 768px) {
+    .modalContainer {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .header {
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Thu nhỏ selector ngày */
+    .dateItem {
+        min-width: 65px;
+        padding: 8px 5px;
+    }
+
+    .dateText {
+        font-size: 16px;
+    }
+
+    .dayText {
+        font-size: 9px;
+    }
+
+    /* Ép Grid thời gian thành 3 cột đều nhau */
+    .timeGrid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px;
+    }
+
+    .timeValue {
+        font-size: 14px;
+    }
+
+    /* Modal xác nhận (Confirm) */
+    .modalCol {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .modalFooter {
+        flex-direction: column; /* Nút bấm xếp chồng trên mobile */
+        gap: 10px;
+    }
+
+    .btnCancel, .btnConfirm {
+        width: 100%; /* Nút chiếm hết chiều ngang */
+        padding: 12px;
+    }
+}
+
+/* 3. MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .modalClose {
+        top: 0;
+        right: 0;
+    }
+
+    .headerTitle h3 {
+        font-size: 16px;
+        padding-right: 30px; /* Tránh đè vào nút Close */
+    }
+
+    /* Ép Grid thời gian thành 2 cột cho dễ bấm */
+    .timeGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .typeTitle {
+        font-size: 1.1rem;
+    }
+
+    /* Bảng xác nhận chuyển thành dạng dọc để dễ đọc */
+    .modalRow {
+        flex-direction: column;
+    }
+
+    .modalCol {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .modalCol:last-child {
+        border-bottom: none;
+    }
+}
+
+/* 4. XỬ LÝ CHIỀU CAO (Cho màn hình xoay ngang - Landscape) */
+@media (max-height: 500px) {
+    .modalContainer {
+        max-height: 95vh;
+    }
+    
+    .modalMovieTitle {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+}

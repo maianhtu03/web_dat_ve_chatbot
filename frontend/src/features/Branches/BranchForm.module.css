@@ -1,0 +1,85 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modalHeader h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.25rem;
+    color: #1e293b;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.formGroup input:focus {
+    border-color: #3b4b95;
+    box-shadow: 0 0 0 3px rgba(59, 75, 149, 0.1);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.cancelBtn {
+    padding: 10px 20px;
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submitBtn {
+    padding: 10px 20px;
+    background: #3b4b95; /* Màu đồng bộ với Dashboard */
+    color: white;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submitBtn:hover {
+    background: #2d3a75;
+}

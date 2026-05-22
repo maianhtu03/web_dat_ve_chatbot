@@ -1,0 +1,494 @@
+.formContainer {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr; /* Tỉ lệ vàng cho form và lịch đối chiếu */
+    gap: 25px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #edf2f7;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #2d3748;
+    text-transform: uppercase;
+    border-left: 4px solid #3182ce;
+    padding-left: 12px;
+}
+
+/* Layout các hàng */
+.row {
+    display: flex; /* Chuyển sang flex để linh hoạt số lượng cột */
+    gap: 20px;
+    margin-bottom: 5px;
+}
+.row > .formGroup {
+    flex: 1; /* Các cột tự chia đều không gian */
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.formGroup label, .labelTitle {
+    font-weight: 600;
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+/* Input & Select */
+.formGroup select, 
+.formGroup input[type="text"], 
+.formGroup input[type="date"], 
+.formGroup input[type="time"], 
+.formGroup input[type="number"] {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.formGroup select:focus, .formGroup input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* Grid cho các Thứ trong tuần */
+.daysGrid {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0 25px 0;
+    flex-wrap: wrap;
+}
+.autoCheckRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.autoCheckRow input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.autoCheckRow label {
+    font-weight: 600;
+    color: #2b6cb0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnAddManual {
+    background: #e2e8f0;
+    color: #2d3748;
+    border: 1px solid #cbd5e0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btnAddManual:hover {
+    background: #cbd5e0;
+}
+
+.manualList {
+    font-size: 13px;
+    color: #4a5568;
+    background: #f7fafc;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border-left: 3px solid #3182ce;
+}
+
+.inlineRow {
+    display: flex;
+    align-items: flex-end; /* Căn nút bằng với đáy ô input */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.inlineRow .formGroup {
+    flex: 1; /* Để ô input ngày chiếu giãn ra chiếm hết khoảng trống bên trái */
+    margin-bottom: 0; /* Xóa margin bottom để tránh làm lệch hàng flex */
+}
+.formGroup input[type="date"] {
+    height: 38px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.btnAddTask {
+    background-color: #3f51b5; /* Màu xanh indigo giống mẫu */
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    
+    /* CHIỀU CAO: Phải khớp với chiều cao của ô input (thường là 38px hoặc 40px) */
+    height: 38px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Không cho chữ bị nhảy dòng */
+    transition: background-color 0.2s;
+}
+
+.btnAddTask:hover {
+    background-color: #303f9f;
+}
+
+.manualTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa; /* Nền xám nhẹ để nổi bật khu vực hàng đợi */
+    border-radius: 8px;
+}
+.timeTag {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #dcdfe6;
+    padding: 6px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+.timeTag:hover {
+    border-color: #409eff;
+    transform: translateY(-1px);
+}
+.tagTimeInfo {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.startTime {
+    font-weight: 700;
+    color: #2c3e50;
+}
+.separator {
+    margin: 0 8px;
+    color: #909399;
+}
+.endTime {
+    color: #606266;
+    font-size: 13px;
+}
+
+.btnRemoveTag {
+    margin-left: 10px;
+    border: none;
+    background: none;
+    color: #ff4949;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.btnRemoveTag:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+}
+.formGroup input:disabled {
+    background-color: #edf2f7;
+    cursor: not-allowed;
+    color: #718096;
+    border-style: dashed;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f7fafc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s;
+}
+
+.checkboxLabel:hover {
+    background: #edf2f7;
+}
+
+.checkboxLabel input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Cột phải: Danh sách suất chiếu đã có */
+.scheduleList {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.scheduleItem {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #cbd5e0;
+}
+
+.timeInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 90px;
+}
+
+.timeInfo strong {
+    color: #2d3748;
+    font-size: 15px;
+}
+
+.timeInfo small {
+    color: #718096;
+    font-size: 12px;
+}
+
+.movieInfo {
+    margin-left: 15px;
+    font-weight: 500;
+    color: #1a202c;
+    flex: 1;
+}
+
+/* Nút bấm */
+.btnSave {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.btnSave:hover {
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+}
+
+.btnSave:active {
+    transform: scale(0.98);
+}
+
+.emptyText {
+    text-align: center;
+    color: #a0aec0;
+    padding: 40px 0;
+    font-style: italic;
+}
+
+/* Scrollbar đẹp cho danh sách lịch */
+.scheduleList::-webkit-scrollbar {
+    width: 6px;
+}
+.scheduleList::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+
+/* trung xuất chiếu */
+.conflictHighlight {
+    border: 2px solid #ff4d4f;
+    background-color: #fff1f0;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.actionButtons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btnBack {
+    background-color: #4e598c; /* Màu xanh tím giống ảnh */
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btnPublish {
+    background-color: #4e598c; /* Cùng màu hoặc chỉnh theo ý bạn */
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btnBack:hover, .btnPublish:hover {
+    opacity: 0.9;
+}
+
+
+/* Them xuất chiếu cho nhiều ngày */
+/* Trong file ShowtimeManager.module.css */
+
+.daysGrid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.checkboxLabel {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checkboxLabel.activeDay {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.multiTimeInput {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.timeTagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.timeTagItem {
+    background: #e9ecef;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.timeTagItem span {
+    cursor: pointer;
+    color: #ff4d4f;
+    font-size: 18px;
+}
+
+
+/* Nút thêm giờ */
+.btnAddTime {
+    background-color: #4a5d8e;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    height: 38px; /* Khớp chính xác với chiều cao input */
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0 !important; /* Ép margin về 0 để không bị lệch */
+    display: flex;
+    align-items: center;
+}
+
+.btnAddTime:hover {
+    background-color: #3b4b72;
+}
+.rowInlineCustom {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+/* Hàng ngang chứa input và nút */
+.rowInlineCustom {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end; /* Quan trọng nhất: Căn đáy để thẳng hàng */
+}
+
+/* Loại bỏ margin dư thừa làm lệch hàng */
+.formGroupNoMargin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 0 !important; 
+}
+
+.formGroupNoMargin label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #4a5568;
+}
+
+/* Ép input có chiều cao cố định */
+.formGroupNoMargin input {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.manualEntrySection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}

@@ -1,0 +1,126 @@
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 20px; /* Ép xuống 20px cho bằng với trang Thống kê */
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+}
+
+.header p {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.header p span {
+    color: #3b4b95; /* Màu xanh Navy nhấn mạnh */
+    font-weight: 500;
+}
+
+.contentCard {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff; /* Nền trắng để nổi bật trên nền xám của container */
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+}
+
+.cardHeader h2 {
+    font-size: 1.1rem;
+    color: #334155;
+    margin: 0;
+}
+
+.addBtn {
+    background-color: #10b981; /* Màu xanh lá chuẩn Thêm mới */
+    color: white;
+    height: 36px; /* Bằng với ô Search */
+    padding: 0 16px;
+    border: none;
+    border-radius: 6px; /* Bo góc 6px */
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap; /* Không cho chữ rớt dòng */
+}
+
+.addBtn:hover {
+    background-color: #059669;
+}
+
+.searchBar {
+    position: relative;
+    width: 320px;
+    display: flex;
+    align-items: center;
+}
+.searchBar svg {
+    position: absolute;
+    left: 12px;
+    color: #94a3b8;
+}
+.searchBar input {
+    width: 100%;
+    height: 36px; /* CHIỀU CAO CHUẨN: 36px */
+    padding: 0 12px 0 36px; /* Chừa chỗ trống bên trái cho icon kính lúp */
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e293b;
+    outline: none;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.searchBar svg {
+    color: #94a3b8;
+}
+
+
+
+/* Phần phân trang (Pagination) nếu bạn cần */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pageBtn {
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.activePage {
+    background-color: #3b4b95;
+    color: white;
+    border-color: #3b4b95;
+}

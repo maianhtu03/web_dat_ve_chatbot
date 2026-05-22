@@ -1,0 +1,204 @@
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.headerSection {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.pageTitle {
+    font-size: 28px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.underline {
+    width: 80px;
+    height: 4px;
+    background: #e50914; /* Màu đỏ Cinema */
+    margin: 0 auto;
+}
+
+.newsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.newsCard {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.newsCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.imageWrapper {
+    height: 200px;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.newsCard:hover .imageWrapper img {
+    transform: scale(1.1);
+}
+
+.content {
+    padding: 20px;
+}
+
+.meta {
+    display: flex;
+    gap: 15px;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.readMoreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #e50914;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 13px;
+    transition: gap 0.2s;
+}
+
+.readMoreBtn:hover {
+    gap: 10px;
+}
+
+/* 1. MỨC TABLET DƯỚI 1024PX */
+@media (max-width: 1024px) {
+    .container {
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    .pageTitle {
+        font-size: 24px;
+    }
+
+    .newsGrid {
+        gap: 20px; /* Thu hẹp khoảng cách các card */
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX */
+@media (max-width: 767px) {
+    .container {
+        margin: 20px auto;
+        padding: 0 15px; /* Giảm padding viền ngoài */
+    }
+
+    .pageTitle {
+        font-size: 20px;
+    }
+
+    .headerSection {
+        margin-bottom: 25px;
+    }
+
+    /* CHỐNG TRÀN: Chuyển hẳn sang layout 1 cột dọc co giãn flex */
+    .newsGrid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .imageWrapper {
+        height: 180px; /* Hạ chiều cao ảnh bìa cho cân đối */
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .description {
+        font-size: 13.5px;
+        margin-bottom: 15px;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px; /* Ép sát viền tối đa để tối ưu không gian hiển thị card */
+    }
+
+    .pageTitle {
+        font-size: 18px;
+    }
+
+    .imageWrapper {
+        height: 150px;
+    }
+
+    .meta {
+        gap: 10px;
+        font-size: 12px; /* Thu nhỏ text meta tránh bị nhảy hàng */
+    }
+
+    /* Biến nút xem chi tiết thành dạng khối (Button Block) cho dễ bấm trên điện thoại */
+    .readMoreBtn {
+        width: 100%; 
+        justify-content: space-between;
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        padding: 8px 12px;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+}

@@ -1,0 +1,79 @@
+.profilePage {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Tab Styles */
+.tabHeader {
+    display: flex;
+    border-bottom: 2px solid #eee;
+}
+
+.tabBtn {
+    flex: 1;
+    padding: 15px 5px;
+    border: none;
+    background: white;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.tabBtn.active {
+    background-color: #005596; /* Màu xanh thương hiệu */
+    color: white;
+}
+
+/* Content Styles */
+.tabContent {
+    padding: 30px;
+}
+
+/* Form Layout (Dùng cho AccountInfo) */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột */
+    gap: 20px;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #666;
+}
+
+.formGroup input, .formGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Nút Cập nhật */
+.btnUpdate {
+    background-color: #005596;
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+}
+

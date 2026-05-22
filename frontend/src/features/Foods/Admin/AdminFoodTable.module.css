@@ -1,0 +1,336 @@
+.container { padding: 20px; background: #fff; border-radius: 8px; }
+
+.tableHeader {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    background: #f1f3f5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.searchBox:focus-within {
+    background-color: #e9ecef;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1); /* Hiệu ứng focus nhẹ */
+}
+
+.searchBox svg {
+    color: #495057;
+    margin-right: 10px;
+}
+
+.searchBox input {
+    border: none;
+    background: transparent;
+    margin-left: 10px;
+    outline: none;
+    width: 100%;
+}
+
+.searchBox input::placeholder {
+    color: #adb5bd;
+}
+
+/* Nút thêm mới theo style ảnh 2 */
+.btnAdd {
+    background: #007bff; /* Màu xanh dương chuẩn */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px; /* Bo góc vừa phải */
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.btnAdd:hover {
+    background: #0069d9; /* Đậm hơn khi hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btnAdd:active {
+    transform: translateY(0);
+}
+
+/* Custom Table Style */
+.customTable {
+    width: 100%; border-collapse: collapse; text-align: left;
+}
+
+.customTable th { background: #f8f9fa; padding: 12px; border-bottom: 2px solid #eee; }
+.customTable td { padding: 12px; border-bottom: 1px solid #eee; }
+
+.foodImg { width: 45px; height: 45px; border-radius: 4px; object-fit: cover; }
+.priceText { color: #1890ff; font-weight: 600; }
+
+/* Modal Overlay */
+.modalOverlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modalContent {
+    background: white; padding: 24px; border-radius: 8px; width: 450px;
+}
+
+/* Switch UI */
+.switch { position: relative; display: inline-block; width: 34px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc; transition: .4s; border-radius: 34px;
+}
+.switch input:checked + .slider { background-color: #00c09d; }
+.slider:before {
+    position: absolute; content: ""; height: 14px; width: 14px;
+    left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%;
+}
+.switch input:checked + .slider:before { transform: translateX(14px); }
+
+/* Form Styles */
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.formGroup label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mainInput, .mainSelect, .priceInputWrapper input {
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+.mainInput:focus, .priceInputWrapper input:focus {
+    outline: none;
+    border-color: #00c09d;
+    box-shadow: 0 0 0 3px rgba(0, 192, 157, 0.1);
+}
+
+/* Thẳng hàng Loại và Giá */
+.formRow {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+/* Wrapper cho input giá */
+.priceInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.priceInputWrapper input {
+    width: 100%;
+    padding-right: 30px;
+    font-weight: 600;
+    color: #00c09d;
+}
+
+.currency {
+    position: absolute;
+    right: 12px;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Khu vực Upload ảnh */
+.uploadArea {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #f9fafb;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.imagePreviewContainer {
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+
+.uploadLabel {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #d1d5db;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s;
+    background: #fff;
+}
+
+.uploadLabel:hover {
+    border-color: #00c09d;
+    background: #f0fffb;
+}
+
+.uploadPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    color: #6b7280;
+    gap: 4px;
+}
+
+.previewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.removeImageBtn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    background: #ef4444;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.uploadHint {
+    font-size: 12px;
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+/* Nút bấm cuối form */
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.saveBtn {
+    background: #00c09d;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.cancelBtn {
+    background: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.saveBtn:hover { opacity: 0.9; }
+.cancelBtn:hover { background: #e5e7eb; }
+
+
+/* Căn giữa cột thao tác */
+.customTable th:last-child, 
+.customTable td:last-child {
+    text-align: center;
+    width: 120px; /* Cố định độ rộng để không bị nhảy */
+}
+
+/* Container chứa 2 nút */
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa 2 nút */
+}
+
+/* Style chung cho nút Thao tác */
+.actions button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px; /* Bo góc hiện đại */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background-color: transparent;
+}
+
+/* Nút Sửa - Soft Blue */
+.btnEdit {
+    color: #3b82f6;
+    background-color: #eff6ff !important; /* Xanh nhạt */
+}
+
+.btnEdit:hover {
+    background-color: #3b82f6 !important; /* Xanh đậm khi hover */
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Nút Xóa - Soft Red */
+.btnDelete {
+    color: #ef4444;
+    background-color: #fef2f2 !important; /* Đỏ nhạt */
+}
+
+.btnDelete:hover {
+    background-color: #ef4444 !important; /* Đỏ đậm khi hover */
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+
+

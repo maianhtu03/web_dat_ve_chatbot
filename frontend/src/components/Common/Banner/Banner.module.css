@@ -1,0 +1,147 @@
+.bannerContainer {
+    width: 100%;
+    /* THAY ĐỔI CHÍNH: Bỏ height: 600px, dùng aspect-ratio để khung tự co theo ảnh */
+    /* Tỷ lệ 16/6 hoặc 3/1 thường là chuẩn cho banner cinema ngang */
+    aspect-ratio: 16 / 6; 
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.mySwiper {
+    width: 100%;
+    height: 100%;
+}
+
+.slideContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.bannerImg {
+    width: 100%;
+    height: 100%;
+    /* GIỮ NGUYÊN cover để lấp đầy khung hình mà không bị khoảng đen */
+    object-fit: cover;
+    object-position: center center; 
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* Các phần Overlay và Pagination giữ nguyên như code cũ của bạn */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.2) 0%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    pointer-events: none;
+}
+
+.mySwiper :global(.swiper-button-next:after),
+.mySwiper :global(.swiper-button-prev:after) {
+    font-size: 24px;
+    color: white;
+}
+
+.mySwiper :global(.swiper-pagination-bullet) {
+    background: white;
+    opacity: 0.5;
+}
+
+.mySwiper :global(.swiper-pagination-bullet-active) {
+    background: #e50914;
+    opacity: 1;
+    width: 25px;
+    border-radius: 5px;
+}
+
+/* --- PHẦN RESPONSIVE SỬA LẠI ĐỂ KHÔNG BỊ CHE --- */
+
+/* Màn hình Tablet */
+/* --- TABLET (Dưới 1024px) --- */
+@media (max-width: 1024px) {
+    .bannerImg {
+        object-position: center 20%; 
+    }
+    
+    .mySwiper :global(.swiper-button-next),
+    .mySwiper :global(.swiper-button-prev) {
+        /* Giữ căn giữa dọc */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin-top: 0 !important;
+
+        /* Thu nhỏ nút xuống một chút (Size gốc thường là 44px) */
+        width: 38px !important;
+        height: 38px !important;
+        margin: 0 -5px; /* Sát lề hơn */
+    }
+
+    .mySwiper :global(.swiper-button-next:after),
+    .mySwiper :global(.swiper-button-prev:after) {
+        font-size: 18px !important; /* Icon nhỏ lại tương ứng */
+    }
+}
+
+/* --- MOBILE LỚN (Dưới 768px) --- */
+@media (max-width: 768px) {
+    .bannerImg {
+        object-position: center center;
+    }
+
+    .mySwiper :global(.swiper-button-next),
+    .mySwiper :global(.swiper-button-prev) {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin-top: 0 !important;
+
+        /* Tiếp tục thu nhỏ nút */
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 -8px; 
+    }
+
+    .mySwiper :global(.swiper-button-next:after),
+    .mySwiper :global(.swiper-button-prev:after) {
+        font-size: 14px !important;
+    }
+}
+
+/* --- MOBILE NHỎ (Dưới 480px) --- */
+@media (max-width: 480px) {
+    .bannerImg {
+        object-position: center center; 
+        transform: scale(1.05); 
+    }
+
+    .mySwiper :global(.swiper-button-next),
+    .mySwiper :global(.swiper-button-prev) {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin-top: 0 !important;
+
+        /* Nút nhỏ nhất để không che mặt nhân vật/chữ */
+        width: 28px !important;
+        height: 28px !important;
+        background: rgba(0, 0, 0, 0.3); /* Nền tối mờ để icon trắng dễ nổi bật */
+        margin: 0 -10px; 
+    }
+
+    .mySwiper :global(.swiper-button-next:after),
+    .mySwiper :global(.swiper-button-prev:after) {
+        font-size: 12px !important;
+    }
+    
+    .mySwiper :global(.swiper-pagination) {
+        bottom: 5px !important;
+    }
+}

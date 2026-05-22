@@ -1,0 +1,190 @@
+.mainScheduleContainer { width: 100%; max-width: 1100px; margin: 0 auto; background: #fff; }
+.dateTabsContainer { display: flex; border-bottom: 2px solid #eee; margin-bottom: 20px; overflow-x: auto; }
+.dateTabItem { flex: 1; min-width: 80px; padding: 10px; text-align: center; cursor: pointer; position: relative; }
+.tabDay { font-weight: bold; font-size: 1rem; color: #333; }
+.tabDate { font-size: 0.85rem; color: #666; }
+.activeTab { background: #f0f7ff; }
+.activeTab .tabDay, .activeTab .tabDate { color: #00355a; }
+.activeUnderline { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: #00355a; }
+
+.movieRow { display: flex; gap: 20px; padding: 25px 0; border-bottom: 1px solid #f0f0f0; }
+.moviePosterBlock { 
+    width: 160px; 
+    position: relative; 
+    flex-shrink: 0; 
+}
+.posterImg { width: 100%; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+/* LỚP MỚI: Dùng cho ảnh icon độ tuổi */
+.ageIconBadge { 
+    position: absolute; 
+    top: 8px; 
+    left: 8px; 
+    z-index: 10; 
+    /* Đổ bóng nhẹ để icon nổi bật trên nền poster */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)); 
+}
+
+.ageIconBadge img {
+    width: 38px; /* Độ rộng icon chuẩn giao diện */
+    height: auto;
+    display: block;
+}
+.ratingBadge { position: absolute; top: 8px; left: 8px; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+
+.ratingT18 { background: #e74c3c; }
+.ratingT16 { background: #e67e22; }
+.ratingP { background: #2ecc71; }
+.ratingG { background: #95a5a6; }
+
+.movieTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    transition: color 0.2s ease; /* Tạo hiệu ứng mượt mà khi đổi màu */
+}
+
+.movieTitle:hover {
+    color: #0056b3; 
+    text-decoration: underline; /* Gạch chân nhẹ giống liên kết */
+}
+.movieMeta { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+.metaSeparator { margin: 0 10px; color: #ccc; }
+
+.formatTitle { font-size: 1rem; color: #333; margin: 15px 0 10px 0; border-left: 4px solid #00355a; padding-left: 10px; }
+.timeGrid { display: flex; flex-wrap: wrap; gap: 12px; }
+.timeButton { 
+    display: flex; flex-direction: column; align-items: center; padding: 10px 20px;
+    border: 1px solid #ddd; border-radius: 5px; background: #fff; cursor: pointer; transition: 0.2s;
+}
+.timeButton:hover { border-color: #00355a; background: #f0f7ff; }
+.timeText { font-weight: bold; font-size: 1.1rem; color: #00355a; }
+.seatsText { font-size: 0.75rem; color: #888; margin-top: 4px; }
+
+.centeredMessage { text-align: center; padding: 40px; color: #999; }
+.noShowtimesContainer { text-align: center; padding: 60px; background: #f9f9f9; border-radius: 8px; }
+
+
+@media (max-width: 1024px) {
+    .mainScheduleContainer {
+        padding: 0 15px; /* Tạo khoảng đệm an toàn hai bên viền màn hình */
+    }
+
+    .movieTitle {
+        font-size: 1.2rem; /* Thu nhỏ tiêu đề phim một chút */
+    }
+
+    .moviePosterBlock {
+        width: 140px; /* Thu gọn chiều rộng poster xuống 140px */
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px) */
+@media (max-width: 767px) {
+    /* --- THANH CHỌN NGÀY VUỐT NGANG (SLIDE TABS) --- */
+    .dateTabsContainer {
+        display: flex;
+        overflow-x: auto; /* Kích hoạt tính năng vuốt ngang mượt mà */
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Vuốt siêu mượt trên iPhone */
+        scrollbar-width: none; /* Ẩn scrollbar trên Firefox */
+        padding-bottom: 5px;
+    }
+
+    .dateTabsContainer::-webkit-scrollbar {
+        display: none; /* Ẩn hoàn toàn thanh cuộn trên Chrome/Safari */
+    }
+
+    .dateTabItem {
+        flex: 0 0 75px; /* Giữ kích thước cố định cho mỗi tab ngày, không cho co rúm */
+        padding: 8px 5px;
+    }
+
+    .tabDay {
+        font-size: 0.9rem;
+    }
+
+    .tabDate {
+        font-size: 0.8rem;
+    }
+
+    /* --- BỐ CỤC PHIM: CHUYỂN THÀNH LAYOUT DỌC --- */
+    .movieRow {
+        flex-direction: column; /* Đẩy nội dung thông tin và suất chiếu xuống dưới poster */
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .moviePosterBlock {
+        width: 130px; /* Thu gọn poster để làm ảnh đại diện phía trên */
+        margin: 0 auto; /* Căn giữa ảnh poster nếu bạn thích hoặc bỏ dòng này để căn trái */
+    }
+
+    .movieTitle {
+        font-size: 1.1rem;
+        text-align: center; /* Căn giữa chữ tiêu đề cho hợp bố cục dọc */
+        margin-top: 5px;
+    }
+
+    .movieMeta {
+        text-align: center; /* Căn giữa thông tin thể loại, thời lượng */
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    /* --- LƯỚI GIỜ CHIẾU TRÊN MOBILE --- */
+    .timeGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* Tự động tính toán chia cột đều chạn */
+        gap: 10px;
+    }
+
+    .timeButton {
+        padding: 8px 10px; /* Thu hẹp padding của nút giờ */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .timeText {
+        font-size: 1rem;
+    }
+
+    .seatsText {
+        font-size: 0.7rem;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px) */
+@media (max-width: 480px) {
+    .movieRow {
+        padding: 15px 0;
+    }
+
+    /* Chia lưới giờ chiếu cố định thành 3 cột đều nhau trên điện thoại nhỏ */
+    .timeGrid {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 8px;
+    }
+
+    .timeButton {
+        padding: 6px 4px;
+    }
+
+    .timeText {
+        font-size: 0.95rem;
+    }
+
+    .formatTitle {
+        font-size: 0.9rem;
+        margin: 10px 0 8px 0;
+    }
+
+    .noShowtimesContainer {
+        padding: 40px 20px;
+    }
+
+    .noShowtimesText {
+        font-size: 0.9rem;
+    }
+}

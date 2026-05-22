@@ -1,0 +1,413 @@
+/* Khung tổng quát */
+.layoutWrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7fe; /* Màu nền nhẹ nhàng chuẩn Admin */
+}
+
+/* --- SIDEBAR --- */
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 240px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e5f2;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    
+    /* THÊM DÒNG NÀY: Ngăn nội dung tổng thể bị tràn ra ngoài */
+    overflow: hidden; 
+
+    z-index: 999;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s;
+}
+
+.logoArea {
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #f4f7fe;
+}
+
+.logoArea h2 {
+    color: #1b2559;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.logoArea span {
+    font-size: 11px;
+    color: #4318ff;
+    font-weight: 600;
+}
+
+.navMenu {
+    flex: 1;
+    padding: 15px 0;
+
+    /* THÊM 2 DÒNG NÀY: Cho phép menu cuộn dọc nếu quá dài */
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+.menuLabel {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgba(8, 1, 1, 0.5);
+    font-weight: 600;
+}
+.navMenu::-webkit-scrollbar {
+    width: 4px;
+}
+.navMenu::-webkit-scrollbar-thumb {
+    background: #e0e5f2;
+    border-radius: 10px;
+}
+
+.navMenu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    
+    text-decoration: none;
+    color: #a3aed0;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-right: 4px solid transparent;
+}
+
+.navItem svg {
+    margin-right: 15px;
+}
+
+.navItem:hover {
+    background-color: #f8f9ff;
+    color: #1b2559;
+}
+
+/* Trạng thái Menu đang được chọn */
+.active {
+    color: #1b2559;
+    background-color: #f4f7fe;
+    border-right: 4px solid #4318ff;
+    font-weight: 700;
+}
+
+.logoutArea {
+    padding: 20px;
+    border-top: 1px solid #f4f7fe;
+}
+
+.btnLogout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border: none;
+    background-color: #fff1f1;
+    color: #ff4d4d;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btnLogout:hover {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.mainContent {
+    flex: 1;
+    margin-left: 240px; /* Bằng chiều rộng sidebar để không bị đè */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;       /* Cho phép nội dung co lại nhỏ hơn kích thước tự nhiên */
+    max-width: calc(100vw - 240px);
+}
+
+/* --- ADMIN HEADER --- */
+.adminHeader {
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.headerLeft span {
+    color: #707eae;
+    font-size: 14px;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.avatarPlaceholder {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #4318ff, #b09fff);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.userText {
+    display: flex;
+    flex-direction: column;
+}
+
+.userText strong {
+    font-size: 14px;
+    color: #1b2559;
+}
+
+.userText span {
+    font-size: 11px;
+    color: #a3aed0;
+}
+
+/* --- CONTENT BODY --- */
+.contentBody {
+    padding: 10px;
+    flex: 1;
+    display: flex;      /* Biến nó thành flex container */
+    flex-direction: column; 
+    min-width: 0;
+}
+
+/* QR */
+
+/* --- QR SCANNER BUTTON (Thêm mới) --- */
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa nút QR và UserInfo */
+}
+
+.qrBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border: 1px solid #e0e5f2;
+    padding: 8px 16px;
+    border-radius: 20px; /* Bo tròn để giống với phong cách của .userInfo */
+    cursor: pointer;
+    color: #4318ff; /* Màu xanh chủ đạo của Admin bạn đang dùng */
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.qrBtn:hover {
+    background-color: #4318ff;
+    color: #ffffff;
+    border-color: #4318ff;
+    transform: translateY(-2px); /* Hiệu ứng bay lên nhẹ */
+    box-shadow: 0px 6px 15px rgba(67, 24, 255, 0.2);
+}
+
+.qrBtn svg {
+    display: block;
+}
+
+/* Responsive: Trên màn hình nhỏ có thể ẩn chữ chỉ để lại Icon */
+@media (max-width: 768px) {
+    .qrBtn span {
+        display: none;
+    }
+    .qrBtn {
+        padding: 8px;
+        border-radius: 50%;
+    }
+}
+
+
+/* --- SỬA LẠI ĐỂ ĐẸP HƠN --- */
+
+/* Header của nhóm (Mục cha) */
+.groupHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px; /* Đồng bộ với .navItem */
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #a3aed0; /* Màu chữ mặc định */
+    font-weight: 500;
+}
+
+.groupHeader:hover {
+    background-color: #f8f9ff; /* Màu hover sáng nhẹ giống .navItem */
+    color: #1b2559; /* Chữ đậm lên khi hover */
+}
+
+.groupTitle {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách icon và chữ đồng nhất */
+}
+
+/* Vùng chứa các mục con - Bỏ màu nền đen mờ cũ */
+.childMenu {
+    background-color: #ffffff; /* Giữ nền trắng sáng */
+    overflow: hidden;
+    border-left: 2px solid #e0e5f2; /* Thêm đường kẻ dọc nhẹ để phân biệt phân cấp */
+    margin-left: 30px; /* Đẩy cả khối con vào một chút */
+}
+
+/* Style riêng cho mục con */
+.childItem {
+    padding-left: 20px !important; /* Thụt lề so với đường kẻ dọc */
+    font-size: 13px !important;
+    height: 45px;
+    border-right: none !important; /* Mục con không cần vạch xanh bên phải */
+    border-radius: 8px; /* Bo góc nhẹ cho mục con */
+    margin: 2px 10px; /* Tạo khoảng cách giữa các mục con */
+}
+
+/* Màu hover riêng cho mục con */
+.childItem:hover {
+    background-color: #f4f7fe !important; 
+    color: #4318ff !important; /* Chữ đổi sang màu xanh chủ đạo */
+}
+
+/* Khi mục con đang Active */
+.childItem.active {
+    background-color: #f4f7fe !important;
+    color: #4318ff !important;
+    font-weight: 600;
+}
+
+
+/* Mobie */
+
+.hamburgerBtn {
+    display: none;
+    background: none;
+    border: none;
+    color: #1b2559;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 15px;
+    transition: background-color 0.2s;
+    border-radius: 6px;
+}
+.hamburgerBtn:active {
+    background-color: #f4f7fe;
+}
+
+/* Lớp nền mờ khi mở menu trên Mobile */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Nằm dưới Sidebar (999) */
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* 1. MỨC TABLET DƯỚI 1024PX */
+@media (max-width: 1024px) {
+    .sidebar { width: 220px; }
+    .mainContent { 
+        margin-left: 220px; 
+        max-width: calc(100vw - 220px); 
+    }
+    .adminHeader { padding: 0 20px; }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX */
+@media (max-width: 767px) {
+    .headerLeft { display: flex; align-items: center; }
+    
+    /* Bật nút Hamburger */
+    .hamburgerBtn { display: flex; align-items: center; justify-content: center; }
+    
+    /* Ẩn dòng chữ dài, đổi thành chữ MENU gọn gàng */
+    .breadcrumbTitle { display: none; }
+    .headerLeft::after {
+        content: "";
+        font-weight: 700;
+        color: #1b2559;
+        font-size: 16px;
+    }
+
+    /* Đẩy Sidebar giấu ra ngoài lề trái */
+    .sidebar {
+        transform: translateX(-100%);
+        width: 260px; 
+    }
+
+    /* Class kích hoạt trượt Sidebar vào trong khi bấm nút Hamburger */
+    .sidebarActive {
+        transform: translateX(0);
+    }
+
+    /* Giải phóng nội dung chính chiếm full màn hình */
+    .mainContent {
+        margin-left: 0 !important;
+        max-width: 100vw !important;
+    }
+
+    .adminHeader { padding: 0 15px; }
+    
+    .contentBody {
+        padding: 15px 10px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Ép tất cả các bảng dữ liệu (Table) tự sinh thanh cuộn ngang */
+    .contentBody table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX */
+@media (max-width: 480px) {
+    .adminHeader { height: 60px; padding: 0 10px; }
+    .userText { display: none; } /* Chỉ giữ lại Avatar */
+    .userInfo { padding: 5px; background: transparent; box-shadow: none; }
+    .qrBtn span { display: none; }
+    .qrBtn { padding: 8px; border-radius: 50%; }
+}

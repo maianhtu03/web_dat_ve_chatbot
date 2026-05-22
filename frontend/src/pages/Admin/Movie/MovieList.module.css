@@ -1,0 +1,44 @@
+.container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btnAdd {
+    padding: 10px 20px;
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btnAdd:hover {
+    background-color: #cc0000;
+}
+
+.tabs {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+}
+
+.tabs button.active {
+    border-bottom-color: #ff3333;
+    color: #ff3333;
+}

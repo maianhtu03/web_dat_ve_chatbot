@@ -1,0 +1,231 @@
+.container {
+    padding: 20px;
+    background-color: #f4f7f6;
+    min-height: 100vh;
+}
+
+.header {
+    margin-bottom: 16px;
+}
+
+.breadcrumb {
+    font-size: 12px; /* Chuẩn hóa font chữ phụ */
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.mainTitle {
+    font-size: 20px; /* Tiêu đề chỉ cần 20px, không cần 24px (1.5rem) */
+    font-weight: 700;
+    color: #333;
+}
+
+/* Bộ lọc - Kiểu Card phẳng hiện đại */
+.filterCard {
+    background: white;
+    padding: 16px 20px; /* Thu gọn hộp lọc */
+    border-radius: 8px; /* Bo góc ít lại, 12px hơi giống app di động */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+
+.filterRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px; /* Khoảng cách giữa các ô lọc sát lại một chút */
+    flex-wrap: nowrap;
+}
+
+.filterItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 140px;
+}
+
+.filterItem label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filterItem select, 
+.filterItem input {
+    padding: 0 12px;
+    height: 36px; /* Chiều cao CHUẨN CÔNG NGHIỆP cho form nhập liệu (32-36px) */
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px; /* Font chữ ô nhập cũng nhỏ lại */
+    color: #1e293b;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+
+.filterItem select:focus, 
+.filterItem input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+}
+
+.filterItem select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Nút bấm màu Cyan giống mẫu */
+.btnAction {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0 16px;
+    border: none;
+    border-radius: 6px; /* Khớp với bo góc form */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 36px; /* Bằng với chiều cao thẻ select/input */
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    white-space: nowrap; /* Cấm rớt dòng */
+}
+
+.btnAction:hover {
+    background-color: #00acc1;
+    transform: translateY(-1px);
+}
+
+.btnAction:disabled {
+    background-color: #b2ebf2;
+    cursor: not-allowed;
+}
+
+/* Grid chỉ số */
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Giảm gap từ 20px -> 16px */
+    margin-bottom: 20px;
+}
+
+.statCard {
+    background: white;
+    padding: 16px; /* Giảm độ phình của hộp */
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    min-height: 80px; /* Khống chế chiều cao thẻ */
+}
+
+.statTitle { 
+    font-size: 11px; /* Nhãn phụ nhỏ và đậm */
+    color: #64748b; 
+    font-weight: 600; 
+    text-transform: uppercase;
+}
+
+.statValue { 
+    font-size: 20px; /* CHỈNH Ở ĐÂY: Con số chính ép từ 1.4rem xuống 20px-22px */
+    font-weight: 700; 
+    margin: 4px 0; 
+    color: #1e293b; 
+}
+
+.statSub { 
+    font-size: 11px; 
+    color: #94a3b8; 
+}
+
+.statIcon { 
+    width: 40px; /* Cố định width/height cho hộp icon */
+    height: 40px; 
+    border-radius: 8px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.statIcon svg {
+    width: 20px; /* Thu nhỏ icon bên trong */
+    height: 20px;
+}
+
+.statIcon { padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.green { background: #e6fcf5; color: #0ca678; }
+.blue { background: #e7f5ff; color: #1c7ed6; }
+.orange { background: #fff4e6; color: #f76707; }
+.purple { background: #f8f0fc; color: #ae3ec9; }
+
+/* Grid biểu đồ */
+.chartGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.chartBox {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    min-height: 420px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.chartBox h4 {
+    font-size: 14px; /* Tiêu đề biểu đồ giảm lại */
+    color: #334155;
+    margin-bottom: 16px;
+    font-weight: 600;
+    border-left: 3px solid #00bcd4; /* Thanh kẻ mỏng hơn */
+    padding-left: 10px;
+}
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1200px) {
+    /* Đã có sẵn trong code của bạn, tôi viết lại cho chuẩn */
+    .cardGrid { 
+        grid-template-columns: repeat(2, 1fr); /* Giảm từ 4 thẻ xuống 2 thẻ/hàng */
+    }
+    .chartGrid { 
+        grid-template-columns: 1fr; /* Biểu đồ nằm 1 mình 1 hàng */
+    }
+    .filterRow { 
+        flex-wrap: wrap; /* Cho phép các ô lọc tự động rớt xuống dòng nếu thiếu chỗ */
+    }
+}
+
+/* 2. Màn hình Mobile (Điện thoại, dưới 768px) */
+@media (max-width: 768px) {
+    .container { 
+        padding: 12px; /* Màn hình nhỏ thì thu lề lại cho rộng rãi */
+    }
+    
+    .cardGrid { 
+        grid-template-columns: 1fr; /* Mỗi thẻ KPI nằm 1 hàng */
+    } 
+
+    .filterRow { 
+        flex-direction: column; /* Ép bộ lọc nằm dọc hoàn toàn */
+        align-items: stretch; /* Kéo dãn các ô input ra full 100% chiều ngang */
+    }
+    
+    .filterItem { 
+        min-width: 100%; 
+    }
+    
+    .btnAction { 
+        width: 100%; 
+        justify-content: center; 
+        margin-top: 8px; /* Đẩy nút Lọc cách xa các ô nhập liệu một chút */
+    }
+}

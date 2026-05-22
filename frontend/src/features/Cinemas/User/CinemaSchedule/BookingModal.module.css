@@ -1,0 +1,226 @@
+/* Nền tối bao phủ toàn màn hình khi mở modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Đảm bảo luôn nằm trên cùng */
+}
+
+/* Khung chứa nội dung Modal */
+.modalContainer {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Nút đóng góc trên bên phải */
+.modalClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #333;
+}
+
+.modalHeading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.modalMovieTitle {
+    font-size: 24px;
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Bảng hiển thị thông tin dạng Grid/Flex */
+.modalTable {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.modalRow {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.modalRow:last-child {
+    border-bottom: none;
+    background-color: #f9f9f9;
+}
+
+.modalCol {
+    flex: 1;
+    padding: 12px;
+    border-right: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.modalCol:last-child {
+    border-right: none;
+}
+
+.modalNote {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Khu vực nút bấm cuối Modal */
+.modalFooter {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btnCancel {
+    padding: 10px 30px;
+    border: 1px solid #0056b3;
+    background: #fff;
+    color: #0056b3;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btnCancel:hover {
+    background: #f0f7ff;
+}
+
+.btnConfirm {
+    padding: 10px 30px;
+    border: none;
+    background: #0056b3;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btnConfirm:hover {
+    background: #004494;
+}
+
+/* ============================================================
+   === PHẦN RESPONSIVE CHO MODAL XÁC NHẬN (CONFIRM MODAL) ===
+   ============================================================ */
+
+/* 1. TABLET (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .modalContainer {
+        padding: 30px; /* Giảm nhẹ padding để tăng diện tích hiển thị */
+        max-width: 500px;
+    }
+
+    .modalMovieTitle {
+        font-size: 20px;
+    }
+}
+
+/* 2. MOBILE CHUẨN (Dưới 768px) */
+@media (max-width: 768px) {
+    .modalContainer {
+        width: 95%; /* Mở rộng chiều rộng gần sát mép màn hình */
+        padding: 25px 20px;
+    }
+
+    .modalMovieTitle {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    /* Quan trọng: Chuyển bảng từ dạng hàng ngang sang dạng dọc */
+    .modalRow {
+        flex-direction: column; 
+    }
+
+    .modalCol {
+        border-right: none; /* Bỏ viền dọc */
+        border-bottom: 1px solid #ddd; /* Thêm viền ngang phân cách */
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modalCol:last-child {
+        border-bottom: none;
+    }
+
+    /* Nút bấm trải dài để dễ chạm (Touch target) */
+    .modalFooter {
+        flex-direction: column; /* Xếp chồng 2 nút lên nhau */
+        gap: 12px;
+    }
+
+    .btnCancel, .btnConfirm {
+        width: 100%; /* Full chiều ngang */
+        padding: 12px;
+    }
+}
+
+/* 3. MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+    .modalContainer {
+        padding: 20px 15px;
+    }
+
+    .modalHeading {
+        font-size: 14px;
+    }
+
+    .modalMovieTitle {
+        font-size: 16px;
+    }
+
+    .modalNote {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* Thu nhỏ nút đóng để tránh chạm nhầm */
+    .modalClose {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}
+
+/* 4. XỬ LÝ CHO MÀN HÌNH XOAY NGANG (Landscape mobile) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .modalContainer {
+        max-height: 90vh;
+        overflow-y: auto; /* Cho phép cuộn nếu màn hình quá lùn */
+        padding: 15px;
+    }
+    
+    .modalMovieTitle {
+        margin-bottom: 10px;
+    }
+}

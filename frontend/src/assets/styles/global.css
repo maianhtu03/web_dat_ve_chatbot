@@ -1,0 +1,36 @@
+:root {
+  --primary-blue: #0054a5;
+  --nav-main-height: 75px; 
+  --nav-padding: 10px;
+  --header-height: 75px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  overflow-x: hidden; /* Tránh bị thanh cuộn ngang */
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px; /* Khớp với độ rộng của Navbar */
+    margin: 0 auto;
+    padding: 0 20px; /* Chỉ nên để tối đa 20px lề ở PC */
+}
+
+/* Theo mốc Tablet của bạn */
+@media (max-width: 1023px) {
+    .container {
+        padding: 0 15px; 
+    }
+}
+
+/* Theo mốc Mobile của bạn */
+@media (max-width: 739px) {
+    .container {
+        padding: 0 10px;
+    }
+}

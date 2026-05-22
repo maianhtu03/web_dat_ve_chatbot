@@ -1,0 +1,42 @@
+.foodListPage {
+    padding: 24px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 70px);
+}
+
+.pageHeader {
+    margin-bottom: 24px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #adb5bd;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.separator {
+    font-size: 10px;
+}
+
+.current {
+    color: #495057;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.contentCard {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}

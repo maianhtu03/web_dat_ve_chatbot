@@ -1,0 +1,124 @@
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.mainTitle {
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+    border: 1px solid #eee;
+}
+
+.historyTable th {
+    background: #fdfdfd;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 600;
+    border: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.historyTable td {
+    padding: 12px;
+    border: 1px solid #eee;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    color: #444;
+}
+
+/* Căn giữa cho các cột thông thường */
+.centerText {
+    text-align: center !important;
+}
+
+/* Ô chứa phim: Ảnh bên trái, Chữ bên phải */
+.movieCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    min-width: 220px;
+}
+
+.poster {
+    width: 65px;         /* Kích thước giống ảnh mẫu */
+    height: 95px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-shrink: 0;      /* Không cho ảnh bị bóp méo */
+}
+
+.movieTitle {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Ô thông tin Ghế và Giá tiền */
+.seatInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.seatType {
+    font-weight: 500;
+    color: #555;
+}
+
+.seatList {
+    font-weight: 700;
+    color: #333;
+}
+
+.totalPrice {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Ô điểm thưởng */
+.pointsCell {
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.plus {
+    color: #2e7d32;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.minus {
+    color: #d32f2f;
+}
+
+.loading, .empty {
+    padding: 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+/* Hiệu ứng dòng khi di chuột qua */
+.historyTable tbody tr:hover {
+    background-color: #f9f9f9;
+}

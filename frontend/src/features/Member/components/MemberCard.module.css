@@ -1,0 +1,122 @@
+.container {
+    padding: 20px 0;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto; /* Cho phép kéo ngang nếu màn hình nhỏ */
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.memberTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px; /* Quan trọng để 9 cột không bị dính chữ */
+    background: #fff;
+}
+
+.memberTable th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 12px;
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.memberTable td {
+    padding: 15px 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.memberCode {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.subText {
+    font-size: 11px;
+    color: #888;
+    font-weight: normal;
+}
+
+.rankName {
+    font-weight: 600;
+    color: #444;
+}
+
+.blueText {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Progress Section */
+.progressSection {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.progressText {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.amountHighlight {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.progressTrack {
+    width: 100%;
+    height: 24px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    /* Hiệu ứng sọc chéo giống Beta Cinemas */
+    background: repeating-linear-gradient(
+        45deg,
+        #3498db,
+        #3498db 10px,
+        #2980b9 10px,
+        #2980b9 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.6s ease;
+}
+
+.percentText {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.milestones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.footerNote {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+}

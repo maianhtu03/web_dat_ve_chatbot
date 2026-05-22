@@ -1,0 +1,240 @@
+.container {
+    padding: 20px;
+    background-color: #fff;
+    min-height: 80vh;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 100px;
+    font-weight: bold;
+    color: #888;
+}
+
+.articleHeader {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.mainTitle {
+    font-size: 28px;
+    font-weight: 800;
+    color: #333;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.metaInfo {
+    display: flex;
+    gap: 20px;
+    color: #888;
+    font-size: 14px;
+}
+
+.metaInfo span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bannerWrapper {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.fullBanner {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.contentSection {
+    margin-top: 20px;
+}
+
+.shortDesc {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    padding-left: 15px;
+    border-left: 4px solid #e50914;
+}
+
+/* SỬA LẠI ĐOẠN NÀY TRONG FILE CỦA BẠN */
+.descriptionText {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444;
+    width: 100%;
+    
+    /* BỎ TỪ KHÓA normal ĐI, THAY BẰNG: */
+    word-break: break-word !important; 
+    overflow-wrap: break-word !important;
+}
+
+/* ĐẶC TRỊ: Ép tất cả các thẻ danh sách, dấu chấm đầu dòng từ Editor đổ ra phải xuống dòng */
+.descriptionText p,
+.descriptionText ul,
+.descriptionText li,
+.descriptionText span {
+    max-width: 100% !important;
+    
+    /* XÓA HẲN DÒNG NÀY ĐI: */
+    /* white-space: normal !important; */ 
+    
+    word-break: break-word !important; /* Sửa normal thành break-word giống ở trên */
+    overflow-wrap: break-word !important;
+}
+
+/* Căn chỉnh lại khoảng cách dấu chấm đầu dòng cho đẹp mắt */
+.descriptionText ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.descriptionText li {
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+/* Đảm bảo ảnh bên trong nội dung tự co dãn */
+.descriptionText img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.backBtn {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.backBtn:hover {
+    background: #e50914;
+    color: white;
+}
+
+.descriptionText * {
+    /* Ép tất cả các phần tử con bên trong bài viết có nền trong suốt, loại bỏ HTML rác */
+    background-color: transparent !important; 
+}
+
+
+/* 1. MỨC TABLET DƯỚI 1024PX (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px; /* Giảm padding viền ngoài để tăng đất hiển thị chữ */
+    }
+
+    .mainTitle {
+        font-size: 24px; /* Hạ size tiêu đề cho bớt choán không gian */
+    }
+
+    .shortDesc {
+        font-size: 16px; /* Thu nhỏ khối highlight tin tức */
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px) */
+@media (max-width: 767px) {
+    .articleHeader {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+
+    .mainTitle {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .metaInfo {
+        gap: 15px; /* Thu hẹp khoảng cách dòng ngày tháng và lượt xem */
+        font-size: 13px;
+        flex-wrap: wrap; /* Tự động xuống hàng nếu màn hình quá hẹp */
+    }
+
+    .bannerWrapper {
+        margin-bottom: 20px;
+    }
+
+    .shortDesc {
+        font-size: 15px;
+        line-height: 1.5;
+        padding-left: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* Tối ưu trải nghiệm đọc văn bản chính trên điện thoại */
+    .descriptionText {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* CHỐNG VỠ TRANG: Khống chế tất cả video/bảng từ Editor đổ ra */
+    .descriptionText iframe,
+    .descriptionText video {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9; /* Giữ nguyên tỷ lệ màn hình video không bị móp */
+        border-radius: 4px;
+        margin: 15px 0;
+    }
+
+    .descriptionText table {
+        width: 100% !important;
+        display: block;
+        overflow-x: auto; /* Cho phép cuộn ngang nếu bài viết có bảng dữ liệu */
+    }
+
+    .backBtn {
+        width: 100%; /* Nút quay lại chiếm full chiều ngang di động */
+        justify-content: center;
+        margin-top: 30px;
+        padding: 12px 0;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Ép viền sát nhất có thể */
+    }
+
+    .mainTitle {
+        font-size: 18px;
+    }
+
+    .metaInfo {
+        gap: 10px 15px;
+    }
+
+    .shortDesc {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .descriptionText {
+        font-size: 14.5px; /* Cỡ chữ vàng tối ưu cho mắt khi đọc báo trên màn hình nhỏ */
+        line-height: 1.6;
+    }
+}

@@ -1,0 +1,257 @@
+.detailGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    background-color: #f9fafb;
+}
+
+.movieCard {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    gap: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.mainPoster {
+    width: 160px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.title {
+    color: #1e1b4b;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 16px;
+    font-size: 14px;
+}
+
+.totalPrice {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #dc2626;
+}
+
+.comboCard {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 24px;
+}
+
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4b5563;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.comboItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f9fafb;
+}
+
+.comboImg {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.comboInfo {
+    flex: 1;
+}
+
+.comboName {
+    font-weight: 700;
+    margin: 0;
+}
+
+.comboQty {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 4px 0 0 0;
+}
+
+.qrCard {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.cardHeader {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    text-align: left;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.qrWrapper {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed #d1d5db;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.ticketIdText {
+    font-family: monospace;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4b5563;
+}
+
+.userCard {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 24px;
+}
+
+.userContent p {
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+
+
+/* Phân trang thái  */
+
+
+.statusCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.statusRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.statusBadge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Màu xanh indigo giống ảnh mẫu của bạn */
+.paid {
+    background-color: #3f51b5;
+}
+
+.pending {
+    background-color: #ff9800;
+}
+
+.methodText {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+}
+
+.ratingBadge {
+    background: #e67e22;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Check-in */
+
+.checkInBtn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkInBtn:hover {
+    background-color: #218838;
+}
+
+.checkInBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Màu cho trạng thái Đã sử dụng */
+.used {
+    background-color: #17a2b8; /* Màu xanh cyan hoặc xám tùy bạn */
+    color: white;
+}
+
+
+.controlContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.controlBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px; /* Chữ nhỏ lại một chút cho tinh tế */
+    font-weight: 700;
+    white-space: nowrap; /* QUAN TRỌNG NHẤT: Chống chữ bị rớt thành 2 dòng */
+}
+
+/* Biến thể màu sắc */
+.badgePrinted {
+    background-color: #FFE2E5;
+    color: #F64E60;
+    border: 1px solid #F64E60;
+}
+
+.badgeNotPrinted {
+    background-color: #E1F0FF;
+    color: #3699FF;
+    border: 1px solid #3699FF;
+}
+
+.printedTime {
+    font-size: 11px;
+    color: #a3aed0;
+    margin-top: 6px;
+    margin-left: 4px;
+    font-style: italic;
+}

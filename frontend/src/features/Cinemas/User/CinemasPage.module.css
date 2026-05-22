@@ -1,0 +1,265 @@
+.container {
+    width: 100%;
+}
+
+/* --- CHI TIẾT RẠP --- */
+.mainTitle {
+    font-size: 28px;
+    color: #e71a0f;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.bannerWrapper {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fullBanner {
+    width: 100%;
+    height: 350px; /* Đặt chiều cao cố định hoặc max-height vừa phải */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.subTitle {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.infoBlock {
+    margin-top: 30px;
+}
+
+.descriptionText {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    white-space: pre-line; /* Giữ định dạng xuống dòng từ database */
+    text-align: justify;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 400px; /* Chiều cao cố định cho bản đồ */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+/* Ép iframe bản đồ rộng 100% */
+.mapContainer iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+.metaInfo {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #e71a0f;
+}
+
+.backBtn {
+    margin-top: 40px;
+    padding: 12px 25px;
+    background: #fff;
+    border: 1px solid #e71a0f;
+    color: #e71a0f;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.backBtn:hover {
+    background: #e71a0f;
+    color: #fff;
+}
+
+/* --- DANH SÁCH RẠP --- */
+.title {
+    font-size: 22px;
+    color: #e71a0f;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #e71a0f;
+}
+
+.imageBox {
+    width: 35%;
+    height: 200px;
+}
+
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    padding: 20px;
+    width: 65%;
+}
+
+.viewBtn {
+    background: #e71a0f;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-style: italic;
+    color: #888;
+}
+
+
+/* 1. MỨC TABLET DƯỚI 1024PX (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .mainTitle {
+        font-size: 24px; /* Giảm nhẹ size chữ tiêu đề rạp */
+    }
+
+    .fullBanner {
+        height: 280px; /* Hạ bớt chiều cao banner rạp */
+    }
+
+    .mapContainer {
+        height: 320px; /* Thu gọn bản đồ cho cân đối */
+    }
+
+    .imageBox {
+        width: 40%; /* Tăng thêm một chút không gian cho ảnh ở giao diện máy tính bảng */
+    }
+
+    .info {
+        width: 60%;
+        padding: 15px; /* Giảm padding cho đỡ loãng */
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px) */
+@media (max-width: 767px) {
+    /* --- CHI TIẾT RẠP --- */
+    .mainTitle {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .fullBanner {
+        height: 200px; /* Đưa banner về tỷ lệ màn hình điện thoại nằm ngang */
+    }
+
+    .subTitle {
+        font-size: 16px;
+    }
+
+    .descriptionText {
+        font-size: 14px;
+        line-height: 1.6; /* Giảm line-height cho chữ đỡ thưa trên màn hình nhỏ */
+    }
+
+    .mapContainer {
+        height: 260px; /* Bản đồ gọn gàng vừa tầm mắt */
+    }
+
+    .backBtn {
+        width: 100%; /* Nút quay lại trải rộng full màn hình mobile */
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px 0;
+    }
+
+    /* --- DANH SÁCH RẠP: ĐỔI SANG DẠNG CARD DỌC --- */
+    .card {
+        flex-direction: column; /* BÍ QUYẾT: Ảnh lên trên, thông tin xuống dưới */
+    }
+
+    .imageBox {
+        width: 100%; /* Ảnh chiếm trọn chiều ngang card */
+        height: 180px; /* Đặt chiều cao ảnh cố định */
+    }
+
+    .info {
+        width: 100%; /* Thông tin chiếm full chiều ngang */
+        padding: 15px;
+    }
+
+    .info h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .info p {
+        font-size: 13px;
+    }
+
+    .viewBtn {
+        width: 100%; /* Ép nút xem chi tiết rộng 100% cho dễ tương tác chạm */
+        padding: 10px 0;
+        margin-top: 15px;
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px; /* Thu nhỏ tiêu đề "HỆ THỐNG RẠP" */
+        margin-bottom: 15px;
+    }
+
+    .fullBanner {
+        height: 160px; /* Thu nhỏ banner trên các thiết bị như iPhone SE */
+    }
+
+    .metaInfo {
+        padding: 10px;
+        font-size: 13px; /* Ép chữ địa chỉ nhỏ lại tránh nhảy dòng lộn xộn */
+    }
+
+    .imageBox {
+        height: 150px; /* Hạ chiều cao ảnh bìa card rạp */
+    }
+
+    .grid {
+        gap: 15px; /* Thu hẹp khoảng cách giữa các rạp */
+    }
+}

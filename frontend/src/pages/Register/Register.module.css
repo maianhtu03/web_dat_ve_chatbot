@@ -1,0 +1,262 @@
+/* Container bao phủ toàn trang để giữ Navbar ở trên cùng */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Phần nội dung chứa Poster nền */
+.registerWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 20px;
+  
+ 
+}
+
+/* Thẻ Card chứa Form */
+.registerCard {
+  background: rgba(255, 255, 255, 0.98);
+  width: 100%;
+  max-width: 580px; /* Rộng hơn trang Login để chia 2 cột đẹp hơn */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.registerHeader {
+  background-color: #0054a5; /* Màu xanh thương hiệu MTU */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.registerBody {
+  padding: 20px 35px;
+}
+
+/* CHIA CỘT: Sử dụng Grid để chia 2 cột đều nhau */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Chia thành 2 cột bằng nhau */
+  column-gap: 20px;               /* Khoảng cách giữa 2 cột */
+  row-gap: 3px;                  /* Khoảng cách giữa các hàng */
+}
+
+/* Responsive: Trên điện thoại sẽ tự động nhảy về 1 cột */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .registerCard {
+    margin-top: 20px;
+  }
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Dấu * màu đỏ cho các trường bắt buộc */
+.inputGroup label span {
+  color: #d0021b;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+.inputField {
+  position: relative;
+    display: flex;
+    align-items: center;
+    /* Đưa border từ input ra ngoài div này */
+    border: 1px solid #dcdcdc; 
+    background-color: #f9f9fb;
+    border-radius: 4px; /* Bo góc chuẩn 4px theo ý bạn */
+    transition: all 0.2s;
+
+}
+
+/* Icon nằm bên trái trong ô input */
+.inputField svg {
+  position: absolute;
+  left: 12px;
+  color: #999;
+}
+
+.inputField input, 
+.inputField select {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+   border: none !important; /* QUAN TRỌNG: Bỏ border mặc định của input */
+    background-color: transparent; /* Để lộ màu nền của inputField */
+    outline: none;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.inputField input:focus {
+  border-color: #0054a5;
+  background-color: #fff;
+}
+.inputField:focus-within {
+    border-color: #0054a5;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 84, 165, 0.1); /* Thêm đổ bóng nhẹ cho chuyên nghiệp */
+}
+
+/* Phần checkbox điều khoản */
+.checkboxGroup {
+  grid-column: 1 / -1; /* Trải dài hết cả 2 cột */
+  margin: 20px 0;      /* Tăng khoảng cách trên dưới một chút cho thoáng */
+  display: flex;
+  align-items: flex-start; /* Căn lề theo đỉnh của dòng text đầu tiên */
+  justify-content: center; /* Căn giữa toàn bộ cụm checkbox + text theo chiều ngang */
+  gap: 12px;
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 90%;      /* Giới hạn độ rộng để text không bị tràn sát mép */
+  margin-left: auto;   /* Kết hợp margin-right auto để căn giữa container */
+  margin-right: auto;
+  position: relative;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  margin-top: 3px;     /* Đẩy nhẹ input xuống để thẳng hàng với dòng text đầu tiên */
+  cursor: pointer;
+  flex-shrink: 0;      /* Ngăn checkbox bị bóp méo khi text dài */
+}
+.checkboxGroup label {
+  cursor: pointer;
+  user-select: none;   /* Ngăn bôi đen text khi click nhầm */
+}
+
+.checkboxGroup input {
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.checkboxGroup a {
+  color: #0054a5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.checkboxGroup a:hover {
+  text-decoration: underline;
+}
+
+/* Nút bấm */
+.btnActionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Tạo khoảng cách 15px giữa 2 button, không lo bị dính */
+  margin-top: 20px;
+  align-items: center; /* Căn giữa các nút nếu cần */
+}
+
+.btnPrimary, .btnGoogle {
+  width: 85%; /* Giảm chiều rộng từ 100% xuống 85% để nút nhỏ gọn, tinh tế hơn */
+  max-width: 350px; /* Giới hạn chiều rộng tối đa */
+  padding: 12px; /* Giảm độ dày nút một chút */
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà khi di chuột */
+  display: block;
+  margin: 0 auto; /* Căn giữa nút */
+}
+.btnPrimary {
+  background-color: #0054a5;
+  color: white;
+ 
+}
+
+.btnPrimary:hover {
+  background-color: #004080;
+  
+  
+}
+
+.btnGoogle {
+  background-color: #f696a5;
+  color: white;
+  
+}
+
+.btnGoogle:hover {
+  opacity: 0.9;
+}
+.loginRedirect {
+  margin-top: 20px;       /* Khoảng cách với nút bấm phía trên */
+  text-align: center;     /* Căn giữa dòng chữ */
+  font-size: 14.5px;      /* Cỡ chữ vừa phải */
+  color: #333;            /* Màu chữ xám đen */
+}
+
+.loginRedirect a {
+  color: #0054a5;         /* Màu đỏ cho chữ "Đăng nhập" */
+  text-decoration: none;  /* Bỏ gạch chân mặc định */
+  font-weight: 600;       /* Làm đậm chữ để gây chú ý */
+  margin-left: 5px;       /* Khoảng cách giữa văn bản và link */
+  border-bottom: 1px solid transparent; /* Chuẩn bị cho hiệu ứng hover */
+  transition: all 0.2s;
+}
+
+.loginRedirect a:hover {
+  border-bottom: 1px solid #0054a5; /* Hiện gạch chân khi di chuột vào */
+  opacity: 0.8;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #999;
+    z-index: 10;
+}
+
+.eyeIcon svg {
+    position: static !important; /* Quan trọng để không bị dính left: 12px */
+}
+
+
+
+/*Lỗi vadidate*/
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Giảm margin để nhường chỗ cho text lỗi */
+}
+.errorText {
+    color: #ff4d4f;
+    font-size: 11px;
+    height: 15px; /* Giữ chỗ cố định để tránh nhảy layout */
+    margin-top: 2px;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.errorBorder {
+    border: 1.5px solid #ff4d4f !important;
+    background-color: #fff1f0 !important;
+    border-radius: 4px;
+}

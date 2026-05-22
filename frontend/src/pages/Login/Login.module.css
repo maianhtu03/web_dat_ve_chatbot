@@ -1,0 +1,253 @@
+
+.pageContainer {
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử theo cột: Navbar trên, Form dưới */
+  min-height: 100vh;      /* Chiều cao tối thiểu bằng toàn bộ màn hình */
+}
+.loginWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 110px);
+  background-color: #f4f4f4;
+  padding: 25px 20px;
+}
+
+.loginCard {
+  background: #fff;
+  width: 100%;
+  max-width: 450px; /* Thu nhỏ lại một chút cho cân đối vì ít trường nhập hơn */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loginHeader {
+  background-color: #0054a5;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.loginBody {
+  padding: 35px;
+}
+
+.inputGroup {
+  margin-bottom: 3px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.inputField {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputField svg {
+  position: absolute;
+  left: 12px;
+  color: #999;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  border: 1px solid #dcdcdc;
+  background-color: #f0f4f9;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+
+.forgotPass {
+  text-align: right; /* Đẩy sang phải nhìn sẽ hiện đại hơn */
+  margin-bottom: 25px;
+}
+
+.forgotPass a {
+  color: #0054a5;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 14px;
+  background-color: #0054a5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.btnGoogle {
+  width: 100%;
+  padding: 14px;
+  background-color: #f696a5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.registerRedirect {
+  margin-top: 25px;       /* Khoảng cách với nút Facebook phía trên */
+  text-align: center;     /* Căn giữa dòng chữ */
+  font-size: 15px;
+  color: #333;            /* Màu chữ đen xám nhẹ */
+}
+
+.registerRedirect a {
+  color: #0054a5;         /* Màu đỏ giống ảnh mẫu bạn gửi */
+  text-decoration: none;  /* Bỏ gạch chân mặc định */
+  font-weight: 500;
+  border-bottom: 1px solid #0054a5; /* Tạo gạch chân sát chữ như trong ảnh */
+  margin-left: 5px;       /* Khoảng cách nhỏ với vế trước */
+  transition: opacity 0.2s;
+}
+
+.registerRedirect a:hover {
+  opacity: 0.8;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 12px; /* Đẩy sang lề phải */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #999;
+  z-index: 10;
+  height: 100%; /* Giúp căn giữa theo chiều dọc ô input */
+}
+
+/* Hủy bỏ các thuộc tính tuyệt đối cho icon bên trong nút mắt */
+.eyeIcon svg {
+  position: static !important; 
+  left: auto !important;
+  color: inherit;
+}
+
+
+/* Màu đỏ cho viền lỗi */
+.errorBorder {
+    border: 1.5px solid #ff4d4f !important;
+    background-color: #fff1f0 !important;
+    border-radius: 4px;
+}
+
+/* Text thông báo lỗi */
+.errorText {
+    color: #ff4d4f;
+    font-size: 11px;
+    height: 15px; /* Giữ chỗ cố định tránh nhảy layout */
+    margin-top: 4px;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+
+
+/* ============================================================
+   === PHẦN RESPONSIVE CHO TRANG ĐĂNG NHẬP ===
+   ============================================================ */
+
+/* 1. TABLET (Dưới 1024px) */
+@media (max-width: 1024px) {
+  .loginCard {
+    max-width: 400px; /* Thu nhỏ chiều rộng card một chút */
+  }
+  
+  .loginBody {
+    padding: 30px; /* Giảm padding cho đỡ choán chỗ */
+  }
+}
+
+/* 2. MOBILE CHUẨN (Dưới 768px) */
+@media (max-width: 768px) {
+  .loginWrapper {
+    padding: 15px; /* Giảm padding lề ngoài để card rộng hơn trên màn hình hẹp */
+    min-height: calc(100vh - 80px); /* Điều chỉnh lại chiều cao trừ Navbar mobile */
+  }
+
+  .loginCard {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Giảm đổ bóng cho nhẹ nhàng */
+    border-radius: 8px; /* Tăng độ bo góc một chút cho hiện đại */
+  }
+
+  .loginHeader {
+    padding: 15px;
+    font-size: 16px; /* Chữ header nhỏ lại */
+  }
+
+  .loginBody {
+    padding: 25px 20px; /* Thu hẹp không gian bên trong */
+  }
+
+  .inputField input {
+    padding: 12px 35px 12px 35px; /* Giảm nhẹ padding bên trong ô nhập */
+    font-size: 14px;
+  }
+
+  .btnPrimary, .btnGoogle {
+    padding: 12px; /* Nút bấm thấp xuống cho cân đối */
+    font-size: 14px;
+  }
+
+  .registerRedirect {
+    font-size: 14px; /* Chữ chuyển hướng nhỏ lại */
+  }
+}
+
+/* 3. MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+  .loginCard {
+    border-radius: 0; /* Trên màn hình cực nhỏ, card tràn viền nhìn sẽ thoáng hơn */
+    box-shadow: none;
+    border: none;
+    background: transparent; /* Có thể để nền trong suốt nếu background wrapper là trắng */
+  }
+
+  .loginWrapper {
+    background-color: #fff; /* Chuyển nền wrapper thành trắng đồng bộ với card */
+    align-items: flex-start; /* Đẩy form lên trên một chút thay vì giữa màn hình */
+    padding-top: 40px;
+  }
+
+  .loginHeader {
+    background: none;
+    color: #0054a5; /* Chuyển tiêu đề thành chữ xanh trên nền trắng */
+    font-size: 20px;
+    text-align: left;
+    padding: 0 0 20px 0;
+  }
+
+  .loginBody {
+    padding: 0; /* Loại bỏ padding để tận dụng tối đa chiều ngang */
+  }
+
+  /* Đảm bảo lỗi không làm nhảy layout quá nhiều trên màn hình hẹp */
+  .errorText {
+    font-size: 10px;
+  }
+}

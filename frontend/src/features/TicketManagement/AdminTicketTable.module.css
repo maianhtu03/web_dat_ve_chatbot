@@ -1,0 +1,121 @@
+.container {
+    background-color: transparent;
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr 1.5fr 1fr;
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.colSpan2 {
+    grid-column: span 2;
+}
+
+.ticketCard {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr 1.5fr 1fr;
+    align-items: center;
+    border: 1px solid #f3f4f6;
+    transition: box-shadow 0.3s ease;
+}
+
+.ticketCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ticketId {
+    font-size: 14px;
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.movieTitle {
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.cinemaName {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.seatHighlight {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.statusPaid {
+    display: inline-block;
+    background-color: #f0fdfa;
+    color: #0d9488;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.posterImg {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.userName {
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.userEmail {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.badgeAdmin {
+    background-color: #1e1b4b;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.actions {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.btnView {
+    background-color: #f3f4f6; /* Nền xám cực nhẹ */
+    color: #1e1b4b;           /* Màu icon đậm để nổi bật */
+    border: 1px solid #e5e7eb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnView:hover {
+    background-color: #1e1b4b; /* Khi hover thì đảo màu */
+    color: #ffffff;
+    transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ nút lên */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,120 @@
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalContent {
+    background: #fff;
+    width: 580px;
+    max-height: 90vh; /* Giới hạn 90% chiều cao màn hình */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Quan trọng để tách Header/Body/Footer */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.modalHeader {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h3 { margin: 0; font-size: 18px; color: #333; }
+
+.modalBody {
+    padding: 10px 0;
+    overflow-y: auto; /* Tạo thanh cuộn nếu nội dung dài */
+}
+
+/* Custom scrollbar cho đẹp */
+.modalBody::-webkit-scrollbar { width: 6px; }
+.modalBody::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+
+.formGroup { padding: 8px 20px; }
+.formInputSmall { padding: 0; } /* Reset padding cho grid */
+
+.formGroup label, .formInputSmall label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.formGroup input, .formGroup textarea, .formInputSmall input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.sectionTitle {
+    padding: 10px 20px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+.gridInputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 5px 20px;
+}
+
+.matrixGrid {
+    grid-template-columns: repeat(2, 1fr); /* Ma trận chỉ 2 cột Hàng - Cột */
+}
+
+.divider {
+    margin: 15px 20px;
+    border: 0;
+    border-top: 1px dashed #eee;
+}
+
+.modalFooter {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btnCancel {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnSubmit {
+    background: #2dce89;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.errorAlert {
+    margin: 0 20px 10px;
+    background: #fff5f5;
+    color: #e03131;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ffa8a8;
+    font-size: 13px;
+}

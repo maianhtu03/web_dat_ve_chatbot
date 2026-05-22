@@ -1,0 +1,61 @@
+.pageContainer {
+    padding: 24px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+}
+
+.titleSection h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #1a1a1a;
+}
+
+.countBadge {
+    font-size: 14px;
+    color: #6c757d;
+    background: #e9ecef;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.searchBar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0 16px;
+    width: 350px;
+    transition: all 0.3s ease;
+}
+
+.searchBar:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.searchBar input {
+    border: none;
+    padding: 12px 10px;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+.loadingState {
+    text-align: center;
+    padding: 50px;
+    color: #6c757d;
+    font-style: italic;
+}

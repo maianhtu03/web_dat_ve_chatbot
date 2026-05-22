@@ -1,0 +1,260 @@
+/* --- CONTAINER & HEADER --- */
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.headerTitle h2 {
+    font-size: 20px; /* Chuẩn 20px */
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+/* --- BỘ LỌC (FILTER) --- */
+.filterSection {
+    background: #ffffff;
+    padding: 16px 20px; /* Thu gọn padding */
+    border-radius: 8px; /* Bo góc mỏng */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+
+.filterGrid {
+    display: flex;
+    flex-wrap: nowrap; /* Cấm rớt dòng */
+    gap: 12px; /* Rút gọn khoảng cách */
+    align-items: flex-end;
+}
+
+.filterItem {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filterItem label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.filterItem select, 
+.filterItem input {
+    height: 36px; /* CHUẨN CÔNG NGHIỆP 36px */
+    padding: 0 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.filterItem select:focus, 
+.filterItem input:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+}
+
+/* --- HAI NÚT HÀNH ĐỘNG --- */
+.filterAction {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+}
+
+.btnSearch {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px; /* Bằng ô input */
+    font-size: 13px;
+    white-space: nowrap; /* Chống rớt chữ */
+    transition: all 0.2s;
+}
+
+.btnSearch:hover:not(:disabled) {
+    background-color: #00acc1;
+    transform: translateY(-1px);
+}
+
+.btnExport {
+    background-color: #107C41;
+    color: white;
+    padding: 0 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 600;
+    height: 36px; /* Bằng ô input */
+    font-size: 13px;
+    white-space: nowrap; /* Chống rớt chữ */
+    transition: all 0.2s;
+}
+
+.btnExport:hover:not(:disabled) {
+    background-color: #0c6132;
+    transform: translateY(-1px);
+}
+
+.btnSearch:disabled, .btnExport:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- THẺ KPI (CARDS) --- */
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Bạn có 5 thẻ KPI */
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 16px; /* Thẻ gọn lại */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    min-height: 80px;
+    border: 1px solid #f1f5f9;
+}
+
+.cardIcon {
+    font-size: 24px;
+    width: 40px; /* Thu nhỏ icon */
+    height: 40px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.cardContent { display: flex; flex-direction: column; }
+.cardTitle { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; }
+.cardValue { font-size: 22px; font-weight: 700; color: #1e293b; line-height: 1.2; margin-top: 4px; }
+.cardValue small { font-size: 12px; color: #94a3b8; font-weight: 500; }
+
+.cardPurple { border-bottom: 3px solid #8b5cf6; }
+.cardRed { border-bottom: 3px solid #ef4444; }
+
+/* --- BIỂU ĐỒ & HEATMAP --- */
+.chartGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* Giảm gap */
+}
+
+.fullWidth { grid-column: 1 / -1; }
+
+.chartBox {
+    max-width: 100%; /* Ép hộp không được to hơn phần tử cha */
+    overflow-x: auto; /* Tự động hiện thanh cuộn ngang nếu nội dung bên trong quá to */
+    -webkit-overflow-scrolling: touch; /* Hỗ trợ vuốt mượt trên điện thoại */
+}
+/* Riêng thẻ chứa Heatmap không ép height cố định để bảng cuộn được thoải mái */
+.fullWidth.chartBox {
+    height: auto; 
+    min-height: 360px;
+}
+
+.chartBox h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 3px solid #00bcd4;
+    padding-left: 10px;
+}
+
+/* Bảng Heatmap */
+.heatmapWrapper { background: #fff; border-radius: 6px; }
+.heatmapContainer { overflow-x: auto; max-width: 100%; border: 1px solid #e2e8f0; }
+.heatmapTable {
+    width: 100%;
+    min-width: 700px; 
+}
+.stickyCol { position: sticky; left: 0; background: #f1f5f9; z-index: 10; border-right: 2px solid #e2e8f0; min-width: 90px; }
+.heatmapTable th, .heatmapTable td { padding: 8px; border: 1px solid #e2e8f0; text-align: center; min-width: 45px; }
+.cellContent { font-weight: 600; }
+
+.legend { display: flex; align-items: center; gap: 15px; margin-top: 15px; font-size: 11px; color: #64748b; }
+.legendItems { display: flex; gap: 10px; }
+.legendItem { display: flex; align-items: center; gap: 4px; }
+.legendItem i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #e2e8f0; }
+
+.roomName { background: #f8fafc; font-weight: 700; color: #334155; }
+
+/* --- BẢNG ĐƠN GIẢN (Bảng Top suất chiếu kém) --- */
+.tableScroll { overflow-x: auto; flex: 1; }
+.simpleTable { width: 100%; border-collapse: collapse; }
+.simpleTable th { text-align: left; padding: 10px 12px; color: #64748b; font-size: 11px; font-weight: 600; text-transform: uppercase; border-bottom: 2px solid #f1f5f9; }
+.simpleTable td { padding: 10px 12px; font-size: 13px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+.textRed { color: #ef4444; font-weight: 700; }
+
+@media (max-width: 1200px) {
+    .cardGrid { grid-template-columns: repeat(3, 1fr); }
+    .chartGrid { grid-template-columns: 1fr; }
+    .filterGrid { flex-wrap: wrap; }
+}
+
+
+/* 2. MÀN HÌNH MOBILE (Điện thoại, Dưới 768px) */
+@media (max-width: 768px) {
+    /* Thu hẹp lề của toàn bộ trang */
+    .container {
+        padding: 12px;
+    }
+
+    .headerTitle h2 {
+        font-size: 18px; /* Chữ tiêu đề giảm nhẹ */
+    }
+
+    /* Thẻ KPI xếp dọc thành 1 cột */
+    .cardGrid { 
+        grid-template-columns: 1fr; 
+        gap: 12px;
+    }
+
+
+    /* Các hộp biểu đồ giảm bớt padding và gỡ bỏ height cứng để tự do co dãn */
+    .chartBox {
+        padding: 16px;
+        height: auto; 
+        min-height: 300px; 
+    }
+
+    /* Điều chỉnh nhẹ tiêu đề bảng Heatmap trên mobile */
+    .chartBox h3 {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+}

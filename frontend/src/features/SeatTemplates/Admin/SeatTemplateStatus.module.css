@@ -1,0 +1,21 @@
+.statusBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Màu xanh lá cho trạng thái đã xuất bản */
+.statusPublished {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+}
+
+/* Màu xám cho bản nháp */
+.statusDraft {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}

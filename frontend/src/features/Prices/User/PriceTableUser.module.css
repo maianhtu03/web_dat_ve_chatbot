@@ -1,0 +1,119 @@
+.mainContent {
+    min-height: 60vh; /* Đảm bảo Footer luôn ở dưới cùng kể cả khi ít dữ liệu */
+    background-color: #f9f9f9; /* Màu nền nhẹ cho chuyên nghiệp */
+}
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.title { text-align: center; color: #00354b; font-size: 24px; }
+.theaterName { text-align: center; color: #007bff; margin-bottom: 30px; }
+.section { margin-bottom: 40px; }
+.sectionTitle { border-left: 5px solid #007bff; padding-left: 10px; margin-bottom: 15px; }
+.table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.table th { background: #007bff; color: white; padding: 12px; }
+.table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+.slotName { font-weight: bold; background: #f9f9f9; }
+.surchargeGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.surchargeItem { background: #f1f1f1; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; }
+.scPrice { color: #d9534f; font-weight: bold; }
+.loading { text-align: center; padding: 50px; }
+
+
+/* 1. MỨC TABLET DƯỚI 1024PX (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 20px 15px; /* Giảm nhẹ khoảng đệm viền trang */
+    }
+
+    .title {
+        font-size: 22px; /* Thu nhỏ tiêu đề chính */
+    }
+
+    .theaterName {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+}
+
+/* 2. MỨC MOBILE CHUẨN DƯỚI 767PX (max-width: 767px) */
+@media (max-width: 767px) {
+    .title {
+        font-size: 20px;
+    }
+
+    /* --- BẢNG GIÁ VÉ: CHO PHÉP CUỘN NGANG NẾU QUÁ RỘNG --- */
+    .section {
+        margin-bottom: 30px;
+        overflow-x: auto; /* Kích hoạt cuộn ngang riêng cho bảng nếu màn hình bị bóp quá đà */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table th, .table td {
+        padding: 10px 8px; /* Thu hẹp padding trong các ô để bảng thon gọn hơn */
+        font-size: 14px;
+    }
+
+    /* --- KHUNG PHỤ THU: CHUYỂN VỀ 1 CỘT DỌC --- */
+    .surchargeGrid {
+        grid-template-columns: 1fr; /* BÍ QUYẾT: Đẩy các mục phụ thu xếp hàng dọc từ trên xuống */
+        gap: 10px;
+    }
+
+    .surchargeItem {
+        padding: 12px; /* Tăng nhẹ padding cho ngón tay dễ chạm đọc */
+    }
+}
+
+/* 3. MỨC MOBILE SIÊU NHỎ DƯỚI 480PX (max-width: 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .theaterName {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .sectionTitle {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    /* Tối ưu kích thước chữ trong bảng trên màn hình cực nhỏ */
+    .table th, .table td {
+        font-size: 13px;
+        padding: 8px 4px;
+    }
+
+    .slotName {
+        font-size: 12px; /* Khung giờ (Trước 18:00, 18:00 - 22:00...) nhỏ lại một chút để không bị nhảy hàng */
+    }
+
+    .surchargeItem {
+        font-size: 13px; /* Thu nhỏ chữ phần phụ thu */
+        flex-direction: column; /* Biến item phụ thu thành dạng dọc: Tên ở trên, Giá ở dưới */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .scPrice {
+        align-self: flex-end; /* Đẩy giá tiền lệch về góc phải bên dưới cho thoáng layout */
+    }
+
+    .note {
+        font-size: 12px;
+        text-align: center;
+    }
+}

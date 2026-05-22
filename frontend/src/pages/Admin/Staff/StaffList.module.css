@@ -1,0 +1,38 @@
+.container {
+    padding: 24px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.btnAdd {
+    background-color: #e50914; /* Màu đỏ thương hiệu Cinema */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(229, 9, 20, 0.2);
+}
+
+.btnAdd:hover {
+    background-color: #b20710;
+    transform: translateY(-2px);
+}

@@ -1,0 +1,787 @@
+/* --- Cấu trúc Layout chính --- */
+.pageWrapper {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    padding: 30px 20px;
+    align-items: flex-start;
+}
+
+/* Cột trái: Form thông tin & Thanh toán */
+.leftColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Các khối Section (Member, Discount, Combo, Payment) --- */
+.sectionBox {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #edf2f7;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a202c;
+    border-bottom: 2px solid #03599d; /* Màu xanh thương hiệu */
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.iconTitle {
+    color: #03599d;
+    font-size: 1.2rem;
+}
+
+/* --- Phần Giảm giá --- */
+.discountRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.discountRow:last-child {
+    border-bottom: none;
+}
+
+.blueLink {
+    color: #03599d;
+    font-size: 0.9rem;
+    font-style: italic;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.blueLink:hover {
+    text-decoration: underline;
+    color: #02457a;
+}
+
+/* --- Bảng tính tổng chi tiết (Cột trái) --- */
+/* Bảng tính tổng chi tiết */
+.finalPricingTable {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Căn cả bảng về bên phải */
+    padding: 20px 0;
+    margin-top: 10px;
+}
+
+.priceLine {
+    display: grid;
+    /* Cột 1 (Label) tự động co giãn, Cột 2 (Số tiền) cố định khoảng 150px-200px tùy ý */
+    grid-template-columns: 1fr 180px; 
+    width: 100%;
+    max-width: 450px; /* Giới hạn độ rộng bảng để không quá loãng */
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.priceLine span:first-child {
+    text-align: right;
+    color: #4a5568;
+    font-size: 1rem;
+    padding-right: 20px; /* Khoảng cách giữa chữ và số */
+}
+
+.priceLine span:last-child {
+    text-align: right; /* Căn số tiền thẳng lề phải */
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Dòng cuối cùng (Số tiền cần thanh toán) */
+.priceLine:last-child span:first-child {
+    font-weight: 700;
+}
+
+.grandTotalText {
+    color: #e53e3e !important; /* Màu đỏ nổi bật */
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+}
+
+.strikePrice {
+    color: #e53e3e;
+}
+/* --- Phương thức thanh toán --- */
+.paymentSub {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.paymentGrid {
+    display: grid;
+    /* Chia làm 3 cột trên màn hình lớn */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+}
+
+.paymentItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px; /* Bo tròn hoàn toàn */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    position: relative;
+}
+
+.radioWrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.paymentItem:hover {
+    border-color: #03599d;
+    background: #f0f7ff;
+}
+
+.customRadio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.2s;
+}
+/* Nội dung bên trong Item */
+.methodContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.methodIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.methodLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a5568;
+    white-space: nowrap;
+}
+
+/* --- Trạng thái Active --- */
+.activeMethod {
+    border-color: #03599d;
+    background-color: #f0f7ff;
+    box-shadow: 0 4px 12px rgba(3, 89, 157, 0.1);
+}
+
+.activeMethod .customRadio {
+    border-color: #03599d;
+}
+
+/* Dấu chấm bên trong radio khi chọn */
+.activeMethod .customRadio::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #03599d;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.activeMethod .methodLabel {
+    color: #03599d;
+    font-weight: 700;
+}
+
+/* Responsive cho mobile/tablet */
+/* @media (max-width: 768px) {
+    .paymentGrid {
+        grid-template-columns: 1fr; 
+    }
+} */
+
+.paymentItem img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.paymentItem span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* --- Cột phải (Sidebar hóa đơn) --- */
+.rightColumn {
+    width: 380px;
+}
+
+.stickySidebar {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    position: sticky;
+    top: 24px;
+    border: 1px solid #edf2f7;
+}
+
+.movieTicket {
+    display: flex;
+    gap: 16px;
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.poster {
+    width: 90px;
+    height: 125px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.movieTitle {
+    color: #03599d;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.summary {
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.grandTotal {
+    color: #03599d;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* --- Nút bấm --- */
+.actionButtons {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btnBack, .btnNext {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnBack {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+.btnNext {
+    background: #03599d;
+    color: #ffffff;
+}
+
+.btnNext:hover {
+    background: #02457a;
+    transform: translateY(-2px);
+}
+
+
+/* Thêm vào Payment.module.css */
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.infoLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebarIcon {
+    font-size: 1.2rem;
+}
+
+.infoLabel {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.infoVal {
+    font-weight: bold;
+    color: #333;
+}
+
+.infoValBlue {
+    font-weight: bold;
+    color: #004f91; /* Màu xanh Beta */
+}
+
+.timerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #fff5f5; /* Nền đỏ nhạt để tạo sự chú ý nhẹ */
+    border: 1px solid #feb2b2;
+    padding: 12px 20px;
+    border-radius: 50px; /* Bo tròn kiểu viên thuốc */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(229, 62, 62, 0.05);
+}
+.timerWrapper span:first-child {
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+.countdownText {
+    color: #e53e3e; /* Màu đỏ cảnh báo */
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace; /* Font đơn cách để số không bị nhảy khi nhảy giây */
+    letter-spacing: 1px;
+    min-width: 60px;
+    display: inline-block;
+    text-align: center;
+}
+/* Thêm hiệu ứng nhấp nháy nhẹ khi còn dưới 1 phút (tùy chọn) */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Nếu bạn muốn hiệu ứng khi thời gian sắp hết, có thể thêm class từ JS */
+.timerUrgent {
+    animation: pulse 1s infinite;
+    background: #fff5f5;
+    border-color: #e53e3e;
+}
+
+
+/* --- Responsive --- */
+/* @media (max-width: 1024px) {
+    .container { flex-direction: column; }
+    .rightColumn { width: 100%; }
+    .stickySidebar { position: static; }
+} */
+
+/* Voucher & Point */
+.expandBox {
+    width: 100%;
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+.inputGroupInline {
+    display: flex;
+    align-items: flex-end; /* Căn nút bằng với đáy của input */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Để 2 ô input giãn đều nhau */
+}
+
+
+.inputField label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.inputField input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.inputField input:focus {
+    border-color: #0056b3;
+}
+
+/* Nút Đăng ký màu xanh Beta */
+.btnRegister {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 41px; /* Khớp chiều cao với input */
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+/* Bảng Voucher */
+.voucherTable p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #0056b3;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+.pointInputContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pointDetail {
+    display: flex;
+    flex-direction: column;
+}
+
+.pointDetail label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.miniInput {
+    width: 120px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.btnRedeem, .btnRegister {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.voucherTable table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.voucherTable th {
+    background: #eee;
+    padding: 10px;
+    text-align: left;
+}
+.voucherTable td {
+    padding: 12px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px solid #eee;
+}
+.blueLink {
+    color: #0056b3;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+
+
+/* ============================================================
+   === PHẦN RESPONSIVE CHO TRANG THANH TOÁN (PAYMENT) ===
+   ============================================================ */
+
+/* 1. MÀN HÌNH LAPTOP NHỎ & TABLET NGANG (Dưới 1100px) */
+@media (max-width: 1100px) {
+    .container {
+        max-width: 100%;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .rightColumn {
+        width: 320px; /* Thu hẹp Sidebar một chút */
+    }
+}
+
+/* 2. MÀN HÌNH TABLET ĐỨNG (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Đẩy Sidebar xuống dưới cùng */
+    }
+
+    .leftColumn, .rightColumn {
+        width: 100%; /* Cả hai cột chiếm hết chiều ngang */
+    }
+
+    .stickySidebar {
+        position: static; /* Bỏ dính để Sidebar trôi theo luồng trang */
+        margin-top: 10px;
+    }
+
+    /* Đưa các nút hành động lên trên Sidebar hoặc giữ dưới cùng tùy UX */
+    .actionButtons {
+        order: 10; /* Đảm bảo nút bấm nằm dưới cùng sau khi gộp cột */
+    }
+}
+
+/* 3. MÀN HÌNH MOBILE CHUẨN (Dưới 768px) */
+@media (max-width: 768px) {
+    .sectionBox {
+        padding: 16px; /* Giảm padding cho đỡ choán chỗ */
+    }
+
+    .sectionTitle {
+        font-size: 1rem;
+    }
+
+    /* Phân bổ lại bảng tính tiền */
+    .priceLine {
+        grid-template-columns: 1fr 120px; /* Thu hẹp cột số tiền */
+        max-width: 100%;
+    }
+
+    .grandTotalText {
+        font-size: 1.3rem !important;
+    }
+
+    /* Phương thức thanh toán - Chuyển về 2 cột hoặc 1 cột */
+    .paymentGrid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+
+    /* Thu nhỏ Timer */
+    .timerWrapper {
+        padding: 10px 15px;
+    }
+    
+    .countdownText {
+        font-size: 1.1rem;
+    }
+
+    /* Form Voucher/Point */
+    .inputGroupInline {
+        flex-direction: column; /* Chồng input và nút bấm lên nhau */
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .btnRegister, .btnRedeem {
+        width: 100%; /* Nút bấm full width trên mobile */
+    }
+
+    .miniInput {
+        width: 100%; /* Ô nhập điểm full width */
+    }
+}
+
+/* 4. MÀN HÌNH MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+    .paymentGrid {
+        grid-template-columns: 1fr; /* 1 phương thức thanh toán mỗi hàng */
+    }
+
+    .paymentItem {
+        padding: 10px 15px;
+    }
+
+    /* Tóm tắt vé ở Sidebar */
+    .movieTicket {
+        flex-direction: row; /* Vẫn giữ ngang nhưng thu nhỏ ảnh */
+        align-items: center;
+    }
+
+    .poster {
+        width: 70px;
+        height: 100px;
+    }
+
+    .movieTitle {
+        font-size: 0.95rem;
+    }
+
+    /* Bảng tính tổng (Cột trái) */
+    .priceLine span:first-child {
+        font-size: 0.9rem;
+        padding-right: 10px;
+    }
+
+    /* Cố định nhóm nút bấm ở dưới cùng màn hình để dễ thao tác (Sticky Mobile) */
+    .actionButtons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 15px;
+        margin-top: 0;
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        gap: 10px;
+    }
+
+    /* Thêm padding cho body để không bị nút đè mất nội dung cuối trang */
+    .pageWrapper {
+        padding-bottom: 80px;
+    }
+
+    .btnBack, .btnNext {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Bảng Voucher */
+    .voucherTable {
+        overflow-x: auto; /* Cho phép cuộn ngang nếu bảng quá rộng */
+    }
+    
+    .voucherTable td, .voucherTable th {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    
+
+    
+}
+
+
+/* --- TỐI ƯU CHO MÀN HÌNH SIÊU NHỎ (< 480px) - XẾP DỌC NÚT NHƯ APP BETA --- */
+@media (max-width: 480px) {
+    table { 
+        table-layout: fixed; 
+        width: 100%; 
+    }
+
+    /* 1. Chia lại tỷ lệ 3 cột: Ép cột nút nhỏ nhất có thể, dồn đất cho chữ */
+    th:nth-child(1), td:nth-child(1) { width: 45%; } /* Cột Ảnh + Tên */
+    th:nth-child(2), td:nth-child(2) { width: 40%; } /* Cột Mô tả + Giá */
+    th:nth-child(3), td:nth-child(3) { 
+        width: 15%; 
+        min-width: 40px; 
+    }
+
+    /* 2. BÍ QUYẾT: Xếp dọc cụm nút bấm (như ảnh 2) */
+    /* Giả sử thẻ bọc 3 nút của bạn là 1 thẻ div nằm trong td cuối cùng */
+    td:last-child > div {
+        display: flex !important;
+        flex-direction: column !important; /* LẬT DỌC TỪ TRÊN XUỐNG DƯỚI */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important; /* Khoảng cách giữa các nút */
+        width: 100%;
+    }
+
+    /* 3. Chỉnh lại kích thước nút cho vuông vắn, dễ bấm khi xếp dọc */
+    td button {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 16px !important;
+        flex-shrink: 0 !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Ô nhập số lượng (hoặc thẻ span hiển thị số) */
+    td input {
+        width: 26px !important;
+        height: 20px !important;
+        font-size: 13px !important;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 !important;
+        border: none;
+        background: transparent;
+    }
+
+    /* 4. Tinh chỉnh lại chữ và ảnh cho gọn gàng */
+    th, td { 
+        padding: 10px 4px !important; 
+        vertical-align: middle; 
+    }
+    
+    td { 
+        font-size: 11px !important; 
+        line-height: 1.4; 
+    }
+
+    td img { 
+        width: 45px !important; 
+        height: 45px !important; 
+        margin-right: 6px !important; 
+    }
+}

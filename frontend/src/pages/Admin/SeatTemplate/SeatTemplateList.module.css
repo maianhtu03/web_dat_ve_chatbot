@@ -1,0 +1,37 @@
+.pageContainer {
+    padding: 30px;
+    background-color: #f8f9fe;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #32325d;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+}
+
+.btnAdd {
+    background-color: #2dce89; /* Màu xanh nút Tạo */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    transition: all .15s ease;
+}
+
+.btnAdd:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}

@@ -1,0 +1,191 @@
+.searchWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 15px;
+}
+
+.searchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.searchBox input {
+    width: 100%;
+    padding: 10px 40px 10px 40px; /* Chừa chỗ cho icon Search bên trái và X/Loading bên phải */
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.searchBox input:focus {
+    border-color: #003559;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 53, 89, 0.1);
+}
+
+/* Các Icon trong SearchBox */
+.searchIcon {
+    position: absolute;
+    left: 14px;
+    color: #888;
+    pointer-events: none;
+}
+
+.clearIcon {
+    position: absolute;
+    right: 14px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.clearIcon:hover {
+    color: #ff4d4f;
+}
+
+.loadingIcon {
+    position: absolute;
+    right: 14px;
+    color: #003559;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    animation: slideDown 0.25s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Item Phim */
+.item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item:hover {
+    background-color: #f0f7ff;
+}
+
+.item img {
+    width: 45px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Trạng thái không có kết quả */
+.noResult {
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Custom Scrollbar cho Dropdown */
+.dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background: #d1d1d1;
+    border-radius: 10px;
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+    background: #003559;
+}
+
+/* TABLET (768px - 1024px) - BÓP THANH SEARCH LẠI */
+@media (max-width: 1024px) {
+  .searchBox input {
+    height: 38px;
+    padding: 6px 30px 6px 35px;
+    font-size: 12px;
+  }
+  .searchIcon { left: 12px; }
+}
+
+/* MOBILE (< 767px) - THANH SEARCH TRÀN VIỀN Ở HÀNG 2 */
+@media (max-width: 767px) {
+  .searchWrapper {
+    max-width: 100%;
+    margin: 0;
+  }
+  .searchBox input {
+    height: 45px;
+    padding: 8px 40px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .dropdown {
+    position: absolute; 
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    border-radius: 8px;
+  }
+  .item { padding: 12px 15px; }
+  .item img { width: 40px; height: 60px; }
+}

@@ -1,0 +1,79 @@
+.tableWrapper {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.thead {
+  background: #f1f5f9;
+}
+
+.th {
+  padding: 14px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.rowTitle {
+  background: #f8fafc;
+  font-weight: 700;
+  text-align: left;
+  padding: 15px;
+  color: #1e293b;
+  width: 160px;
+  border-right: 1px solid #e2e8f0;
+}
+
+.td {
+  padding: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.inputWrapper:focus-within {
+  border-color: #0054a3;
+}
+
+.cellInput {
+  border: none;
+  text-align: right;
+  width: 100%;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+  background: transparent;
+}
+
+.currency {
+  margin-left: 6px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 12px;
+  display: block;
+}

@@ -1,0 +1,206 @@
+.accountContainer {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Avatar Section */
+.avatarSection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.avatarPlaceholder {
+    width: 150px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.btnUpload {
+    background: #e0e0e0;
+    border: none;
+    padding: 6px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+}
+
+.btnSave {
+    background: #4db3a2;
+    border: none;
+    padding: 6px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Form Grid */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 13.5px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.formGroup label span {
+    color: #ff0000;
+    margin-right: 3px;
+}
+
+/* Input Styles with Icons */
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+    font-size: 14px;
+}
+
+.inputWithIcon input, 
+.inputWithIcon select,
+.formGroup select,
+.noIconInput {
+    width: 100%;
+    padding: 10px; /* Padding left để tránh đè icon */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.noIconInput, .formGroup select:not(.inputWithIcon select) {
+    padding-left: 12px;
+}
+
+.inputWithIcon input:focus {
+    border-color: #005596;
+}
+
+.inputWithIcon input:disabled {
+    background-color: #f8f9fa;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Form Footer */
+.formFooter {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnForgot {
+    background: none;
+    border: none;
+    color: #005596;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    width: fit-content;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.btnUpdate {
+    align-self: center;
+    background-color: #005596;
+    color: white;
+    padding: 12px 65px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btnUpdate:hover {
+    background-color: #003d6b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Model doi mat khau */
+
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    width: 500px;
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modalInputGroup {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.modalInputGroup label {
+    width: 150px;
+    font-size: 14px;
+}
+
+.modalInputGroup input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: #f8faff;
+}
+
+.btnSubmitPassword {
+    background: #00468f;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    cursor: pointer;
+}
+
+.closeBtn {
+    background: none; border: none; font-size: 24px; cursor: pointer; color: #999;
+}

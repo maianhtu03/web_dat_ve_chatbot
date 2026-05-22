@@ -1,0 +1,189 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.successBox, .failBox {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.successBox h1 {
+    color: #28a745;
+}
+
+.failBox h1 {
+    color: #dc3545;
+}
+
+.info {
+    background: #f1f3f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info strong {
+    color: #007bff;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Đảm bảo nút duy nhất sẽ nằm chính giữa */
+    margin-top: 30px;
+}
+
+.btnHome, .btnHistory, .btnRetry {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnHome {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btnHome:hover {
+    background-color: #5a6268;
+}
+
+.btnHistory {
+    background-color: #007bff;
+    color: white;
+}
+
+.btnHistory:hover {
+    background-color: #0056b3;
+}
+
+.btnRetry {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btnRetry:hover {
+    background-color: #c82333;
+}
+
+/* Hi ứng rung nhẹ cho icon khi thất bại */
+.failBox .icon {
+    display: inline-block;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* ============================================================
+   === RESPONSIVE CHO TRANG THÀNH CÔNG / THẤT BẠI ===
+   ============================================================ */
+
+/* 1. TABLET (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .successBox, .failBox {
+        padding: 30px; /* Giảm nhẹ padding */
+        max-width: 450px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* 2. MOBILE CHUẨN (Dưới 768px) */
+@media (max-width: 768px) {
+    .container {
+        min-height: 70vh; /* Thu ngắn lại để tránh trống trải trên mobile */
+        padding: 15px;
+    }
+
+    .successBox, .failBox {
+        padding: 25px 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Đổ bóng nhẹ hơn */
+    }
+
+    .icon {
+        font-size: 60px; /* Thu nhỏ icon */
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        font-size: 0.95rem;
+        padding: 12px;
+        text-align: left; /* Căn trái text trong info để dễ đọc thông tin mã số */
+    }
+
+    /* Quan trọng: Điều chỉnh các nút bấm */
+    .actions {
+        flex-direction: column; /* Xếp chồng các nút lên nhau */
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btnHome, .btnHistory, .btnRetry {
+        width: 100%; /* Nút bấm full chiều ngang để dễ chạm */
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
+/* 3. MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+    .container {
+        min-height: 100vh; /* Full màn hình để làm trang trung gian */
+        background-color: #fff; /* Chuyển nền trắng cho tiệp với box */
+        padding: 0;
+        align-items: flex-start; /* Đẩy nội dung lên trên một chút */
+        padding-top: 50px;
+    }
+
+    .successBox, .failBox {
+        box-shadow: none; /* Bỏ đổ bóng để trông như một trang App thực thụ */
+        border-radius: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .info {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+    }
+}

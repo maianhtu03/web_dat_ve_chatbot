@@ -1,0 +1,211 @@
+/* Container & Table cơ bản */
+.tableWrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+.table th {
+    background-color: #f8fafc;
+    color: #4a5568;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+.table td {
+    padding: 16px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: middle;
+    color: #2d3748;
+}
+
+/* Nút mở rộng (Dấu cộng/trừ) */
+.expandBtn {
+    background: #ebf4ff;
+    border: none;
+    color: #3182ce;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.expandBtn:hover {
+    background: #bee3f8;
+    color: #2b6cb0;
+}
+
+/* Thông tin phim (Hàng cha) */
+.movieFlex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 0; /* Thêm chút khoảng cách trên dưới */
+}
+.posterSmall {
+    width: 50px;           /* Chiều rộng cố định */
+    height: 75px;          /* Chiều cao tỉ lệ 2:3 chuẩn phim */
+    object-fit: cover;     /* Cắt ảnh vừa khung, không bị méo/bẹp ảnh */
+    border-radius: 6px;    /* Bo góc cho đẹp */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Tạo độ nổi */
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+    background-color: #f1f5f9; /* Màu nền khi ảnh chưa load xong */
+}
+.posterSmall:hover {
+    transform: scale(1.1); /* Phóng lớn nhẹ khi hover */
+    z-index: 10;
+}
+.movieTitleWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.movieTitleMain {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a202c;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+
+/* CSS cho Hàng con (Hàng suất chiếu lồng nhau) */
+.expandedRow {
+    background-color: #f7fafc; /* Nền xám nhẹ cho vùng chứa bảng con */
+}
+
+.expandedCell {
+    padding: 5px 5px !important; /* Đẩy lùi vào trong tạo phân cấp */
+}
+
+.innerTableWrapper {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.innerTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.innerTable th {
+    background: #edf2f7;
+    padding: 10px 15px;
+    font-size: 11px;
+    color: #718096;
+}
+
+.innerTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+}
+
+/* Highlight giờ chiếu */
+.timeHighlight {
+    font-weight: 700;
+    color: #2c5282;
+    font-size: 14px;
+}
+
+/* Badge & Trạng thái trong bảng con */
+.formatBadge {
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Toggle Switch Giả (Hoạt động) */
+.switch {
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.switch.active {
+    background-color: #4299e1; /* Màu xanh khi Active */
+}
+
+.slider {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.switch.active .slider {
+    transform: translateX(20px);
+}
+
+/* Nhóm nút hành động */
+.actions {
+   display: flex;
+    align-items: center;    /* Căn giữa icon theo chiều dọc */
+    gap: 8px;
+    height: 100%;           /* Ép chiều cao bằng với ô td */
+    min-height: 28px;
+}
+
+.btnEdit, .btnDelete, .btnView {
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* THAY ĐỔI Ở ĐÂY */
+    display: flex;          
+    align-items: center;    
+    justify-content: center;
+    padding: 0;             /* Xóa padding để tránh đẩy lệch icon */
+    color: white;
+    transition: all 0.2s;
+}
+.btnEdit svg, .btnDelete svg, .btnView svg {
+    display: block;
+}
+.textCenter {
+    text-align: center;
+    vertical-align: middle !important; /* Quan trọng để căn giữa dọc trong table cell */
+}
+
+.btnEdit { background-color: #3182ce; }
+.btnDelete { background-color: #e53e3e; }
+.btnView { background-color: #2d3748; }
+
+.btnEdit:hover, .btnDelete:hover, .btnView:hover {
+    opacity: 0.8;
+}
+
+
+.genreText { color: #718096; font-size: 13px; }

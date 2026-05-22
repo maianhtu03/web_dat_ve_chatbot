@@ -1,0 +1,15 @@
+.tableContainer { background: white; border-radius: 8px; overflow: hidden; }
+.table { width: 100%; border-collapse: collapse; text-align: left; }
+.table th { background: #f8f9fa; padding: 15px; color: #666; font-size: 13px; text-transform: uppercase; }
+.table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 14px; }
+
+.roomName { font-weight: bold; color: #333; }
+.viewSeats { font-size: 12px; color: #17a2b8; text-decoration: none; }
+.viewSeats:hover { text-decoration: underline; }
+
+.badgeActive { background: #e6f4ea; color: #1e7e34; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+.badgeDraft { background: #f1f3f4; color: #5f6368; padding: 4px 8px; border-radius: 4px; font-size: 11px; }
+
+.editBtn, .deleteBtn { border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+.editBtn { background: #3f51b5; color: white; }
+.deleteBtn { background: #dc3545; color: white; }

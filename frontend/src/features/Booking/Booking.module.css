@@ -1,0 +1,490 @@
+/* Container chính - Màu nền xám nhạt của Beta */
+.pageWrapper {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    max-width: 1200px; /* Hoặc 1280px tùy thiết kế */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.mainContent {
+    display: flex;
+    gap: 30px; /* Khoảng cách giữa sơ đồ ghế và sidebar */
+    align-items: flex-start;
+}
+
+/* Breadcrumb tinh chỉnh */
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.activeMovie {
+    color: #03599d;
+    font-weight: bold;
+}
+
+/* Banner tuổi màu cam chuẩn */
+.ageBanner {
+    background-color: #ff9800;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Layout chính: Chia tỉ lệ 3:1 */
+.mainContent {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Khu vực ghế bên trái */
+.seatSection {
+    flex: 3;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Legend: Chú thích ghế */
+.topLegend, .bottomLegend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 15px;
+    width: 100%;
+}
+
+.bottomLegend {
+    margin-top: 40px;
+    margin-bottom: 0;
+    border-top: 1px dashed #eee;
+}
+
+.legItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.legItem img {
+    width: 24px;
+    height: auto;
+}
+
+/* Màn hình cong - Tạo hiệu ứng giống mẫu */
+.screenWrapper {
+    width: 100%;             /* Chiếm toàn bộ chiều ngang của container cha (seatSection) */
+    max-width: 100%;        /* Không vượt quá vùng hiển thị */
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Căn giữa icon màn hình */
+}
+.screenIcon {
+    /* Đặt chiều rộng bằng với sơ đồ ghế hoặc tối đa 90% vùng chứa */
+    width: 90%; 
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); /* Thêm chút bóng đổ cho đẹp */
+}
+
+
+/* SƠ ĐỒ GHẾ - QUAN TRỌNG NHẤT */
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: fit-content;
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* Đảm bảo các hàng ít ghế tự căn giữa */
+    gap: 8px;
+    align-items: center;
+}
+
+.seatWrapper {
+    position: relative;
+    width: 32px; /* Kích thước chuẩn để vừa vặn sơ đồ lớn */
+    height: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.seatWrapper:hover { transform: scale(1.15); }
+
+/* Ghế đôi chiếm diện tích gấp đôi */
+.coupleWidth {
+    width: 70px; 
+}
+
+.seatIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.seatNumber {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8px;
+    font-weight: bold;
+    color: #333;
+    pointer-events: none;
+}
+
+.whiteText { color: white !important; }
+
+/* Ghế ẩn chiếm chỗ để không lệch sơ đồ */
+.seatHidden {
+    width: 32px;
+    height: 32px;
+    visibility: hidden;
+}
+
+/* Sidebar bên phải */
+.sidebar {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.movieCard {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 20px;
+}
+
+.posterWrapper {
+    position: relative;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.poster {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+}
+
+.ratingBadge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #ffc107;
+    color: white;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.movieTitle {
+    font-size: 1.1rem;
+    color: #03599d; /* Màu xanh Beta */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.movieSubInfo p {
+    font-size: 0.9rem;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.formatBadge {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.formatText {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Thông tin chi tiết */
+.infoList {
+    margin-bottom: 20px;
+}
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+.infoLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+}
+
+.infoLabel { color: #888; }
+.infoVal {
+    font-weight: 500;
+    color: #333;
+}
+
+.infoValBlue {
+    color: #03599d;
+    font-weight: bold;
+}
+
+.checkoutBox {
+    border-top: 1px dashed #ddd;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.totalGroup, .timeGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.totalLabel { font-size: 14px; color: #666; margin-bottom: 5px; }
+.totalPrice {
+    font-size: 1.4rem;
+    color: #03599d;
+    font-weight: bold;
+    display: block;
+    margin: 5px 0;
+}
+.timerCount {
+    color: #d9534f; /* Màu đỏ cảnh báo */
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.btnContinue {
+    width: 100%;
+    padding: 12px;
+    background-color: #03599d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnContinue:hover:not(:disabled) { background: #02457a; }
+.btnContinue:disabled {
+    background-color: #ccc;
+}
+
+.loading { text-align: center; padding: 50px; font-size: 18px; color: #666; }
+
+
+
+.priceDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Khoảng cách giữa các nhóm ghế */
+    width: 100%;
+}
+
+.priceItem {
+    display: flex;
+    flex-direction: column; /* Chồng tên ghế lên trên số tiền */
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px;
+    position: relative;
+}
+
+/* Tạo vạch ngăn cách giữa các mục (trừ mục cuối) */
+.priceItem:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 1px;
+    background-color: #ddd;
+}
+
+.typeInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.miniIcon {
+    width: 20px; /* Icon nhỏ hơn ở phần Legend */
+    height: auto;
+    object-fit: contain;
+}
+
+.countInfo {
+    font-size: 14px;
+    color: #03599d; /* Màu xanh Beta đồng bộ */
+    font-weight: bold;
+}
+
+/* Responsive cho mobile nếu cần */
+/* @media (max-width: 768px) {
+    .priceDetails {
+        gap: 15px;
+    }
+    .priceItem:not(:last-child)::after {
+        display: none; 
+    }
+} */
+
+
+/* ============================================================
+   === PHẦN RESPONSIVE CHO TRANG BOOKING (ĐẶT GHẾ) ===
+   ============================================================ */
+
+/* 1. TABLET (Dưới 1024px) */
+/* 1. TABLET (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .container { 
+        padding: 10px; /* Giảm padding 2 bên màn hình để có thêm không gian */
+    }
+
+    .mainContent {
+        flex-direction: row; /* ÉP BUỘC nằm ngang */
+        gap: 15px; /* Giảm khoảng cách giữa sơ đồ và sidebar từ 30px xuống 15px */
+    }
+
+    .seatSection {
+        padding: 20px 10px; /* Bóp padding bên trong khu vực ghế */
+        overflow-x: auto; /* Nếu sơ đồ ghế to quá, cho phép cuộn nhẹ trong khung của nó */
+    }
+
+    .sidebar {
+        min-width: 240px; /* Cho phép sidebar nhỏ hơn bản gốc (280px) */
+        max-width: 260px;
+        padding: 15px; 
+    }
+
+    /* Hơi thu nhỏ ghế lại một tí để nhét vừa khung Tablet */
+    .seatWrapper, .seatHidden {
+        width: 28px;
+        height: 28px;
+    }
+    .coupleWidth {
+        width: 60px;
+    }
+}
+
+/* 2. MOBILE CHUẨN (Dưới 767px): Lúc này mới gãy cột, đẩy Sidebar xuống đáy */
+@media (max-width: 767px) {
+    .mainContent {
+        flex-direction: column; /* GÃY CỘT TẠI ĐÂY */
+        gap: 20px;
+    }
+
+    .seatSection {
+        width: 100%; 
+        flex: none;
+        padding: 20px 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar {
+        width: 100%; 
+        max-width: 100% !important; /* Giải phóng giới hạn để Sidebar full viền điện thoại */
+        box-sizing: border-box;
+    }
+
+    /* Đồng bộ Màn hình và Ghế để cuộn ngang cùng nhau */
+    .screenWrapper,
+    .gridContainer,
+    .topLegend {
+        min-width: 600px; 
+        margin: 0 auto;
+    }
+
+    .screenWrapper { margin-bottom: 30px; }
+
+    /* Thu nhỏ tối đa ghế trên Mobile */
+    .seatWrapper, .seatHidden { width: 26px; height: 26px; }
+    .coupleWidth { width: 56px; }
+    .seatNumber { font-size: 7px; }
+
+    /* Chú thích */
+    .topLegend, .bottomLegend { gap: 10px; padding: 10px; justify-content: center; }
+    .legItem { font-size: 11px; }
+    .legItem img { width: 18px; }
+
+    .movieTitle { font-size: 1.1rem; }
+    .infoItem { font-size: 0.9rem; }
+}
+
+/* 3. MOBILE SIÊU NHỎ (Dưới 480px) */
+@media (max-width: 480px) {
+    .ageBanner {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .posterWrapper {
+        width: 80px;
+    }
+
+    .totalPrice, .timerCount {
+        font-size: 1.2rem;
+    }
+
+    .priceDetails {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        padding-left: 10px;
+    }
+
+    .priceItem {
+        flex-direction: row; /* Dàn ngang Icon và Giá tiền cho dễ đọc */
+        justify-content: space-between;
+        width: 100%;
+        padding: 0;
+    }
+
+    .priceItem:not(:last-child)::after {
+        display: none; /* Xóa vạch kẻ đi vì đã chuyển sang hàng dọc */
+    }
+}

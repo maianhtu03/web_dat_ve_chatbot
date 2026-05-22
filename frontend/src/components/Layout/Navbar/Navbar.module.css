@@ -1,0 +1,308 @@
+.header {
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+  position: relative; 
+  z-index: 99999;
+}
+
+/* Tầng xanh phía trên */
+.topBar {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.authLinks {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  
+  /* ĐIỀU CHỈNH TẠI ĐÂY */
+  width: 100%;
+  max-width: 1200px; /* Khớp với max-width của navContent phía dưới */
+  padding: 0 20px;   /* Đẩy nội dung vào trong 40px so với viền màn hình */
+  box-sizing: border-box;
+}
+/* SỬA TẠI ĐÂY: Đổi màu chữ và bỏ gạch chân */
+.authLinks a {
+  color: #ffffff;          /* Chữ màu trắng */
+  text-decoration: none;   /* Bỏ gạch chân (text đi) */
+  font-size: 12px;
+  transition: opacity 0.2s;
+}
+
+/* Tầng trắng chính - Phải đảm bảo không có padding làm hẹp nội dung */
+.mainNav {
+
+  background-color: white;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: center; /* Giữ cho container nội dung nằm giữa màn hình */
+  border-bottom: 1px solid #eee;
+}
+
+/* SỬA TẠI ĐÂY: Bỏ calc trừ padding, cho cao 100% để tràn khung */
+.navContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px; /* Độ rộng tối đa của nội dung */
+  height: 100%;
+  padding: 0 60px;
+  
+  /* QUAN TRỌNG: Tách Logo/Rạp và Menu ra 2 đầu */
+  justify-content: space-between;
+}
+.searchContainer {
+    flex: 1;           /* Để thanh search chiếm không gian còn trống */
+    display: flex;
+    justify-content: center; /* Căn giữa thanh search */
+    margin: 0 20px;    /* Tạo khoảng cách với logo và menu */
+}
+/* Nhóm bên trái: Logo và Chọn rạp */
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Khoảng cách giữa Logo và ô chọn rạp */
+}
+.locationSelectorWrapper {
+  display: flex;
+  align-items: center;
+  position: relative; /* Quan trọng để Dropdown con căn theo nó */
+}
+.logo {
+  margin-right: 15px; /* Khoảng cách nhỏ giữa Logo và Dropdown rạp */
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 75px; 
+  width: auto; /* Giữ tỉ lệ chiều rộng tự động */
+  display: block;
+}
+
+.locationSelector {
+  display: flex;
+  align-items: center;
+}
+
+.locationSelector select {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+/* SỬA TẠI ĐÂY: Menu phải cao 100% để vùng chọn (hover) tràn khung */
+.menu {
+ display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Khoảng cách giữa các mục chữ */
+  height: 100%;
+  align-items: center;
+}
+
+.menu li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.menu li a:hover {
+  color: var(--primary-blue);
+}
+
+.langIcon {
+  width: 18px;
+  height: auto;
+}
+
+
+/* Info */
+
+
+/* Container bao quanh vùng Chào tên User */
+.userDropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Menu con đổ xuống */
+.dropdownContentTop {
+    display: none; /* Ẩn mặc định */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    border-radius: 4px;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+}
+
+/* Hiển thị khi hover */
+.userDropdown:hover .dropdownContentTop {
+    display: block;
+}
+
+.dropdownContentTop li a, 
+.dropdownContentTop li button {
+    color: #333 !important;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-transform: none;
+}
+
+.dropdownContentTop li a:hover,
+.dropdownContentTop li button:hover {
+    background-color: #f5f5f5;
+    color: #003594 !important;
+}
+
+.logoutLi {
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+}
+
+.logoutLi button {
+    font-weight: bold;
+    color: #d9534f !important; /* Màu đỏ cho Đăng xuất */
+}
+
+/* Ẩn nút mobile ở PC */
+.mobileMenuBtn { display: none; background: none; border: none; cursor: pointer; color: #333; }
+
+.menu { display: flex; list-style: none; margin: 0; padding: 0; gap: 20px; height: 100%; align-items: center; }
+.menu li { height: 100%; display: flex; align-items: center; }
+.menu li a { text-decoration: none; color: #333; font-size: 13px; font-weight: 700; white-space: nowrap; text-transform: uppercase; }
+
+/* --- 1. PC (> 1025px) --- */
+@media (min-width: 1025px) {
+    /* Mặc định đã chạy theo code trên */
+}
+
+/* --- 2. TABLET (768px - 1024px) --- */
+@media (max-width: 1024px) {
+  .navContent { padding: 0 10px; }
+  .authLinks { padding: 0 15px; }
+  
+  /* Bóp Logo và Chọn rạp */
+  .leftGroup { gap: 10px; }
+  .logo img { height: 40px; } 
+  .locationSelector select { padding: 5px 10px; font-size: 11px; } 
+  
+  /* Bóp thanh Tìm kiếm ngắn lại */
+  .searchContainer { 
+    margin: 0 10px; 
+    flex: 0 1 180px; /* Thanh search thu tối đa còn 180px */
+  }
+  
+  /* Bóp Menu chữ */
+  .menu { gap: 10px; }
+  .menu li a { 
+    font-size: 11px; /* Chữ nhỏ lại */
+    letter-spacing: -0.3px; /* Kéo các chữ lại gần nhau 1 chút xíu */
+  }
+}
+
+/* --- 3. MOBILE (< 767px) --- 
+   LÚC NÀY MỚI BẬT HAMBURGER VÀ ĐẨY SEARCH XUỐNG HÀNG 2 */
+@media (max-width: 767px) {
+  .mainNav {
+    height: auto !important;
+    min-height: 70px;
+    position: relative !important;
+    overflow: visible !important;
+    z-index: 100;
+  }
+
+  .navContent {
+    flex-wrap: wrap !important;
+    padding: 10px 15px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .leftGroup { order: 1; display: flex; align-items: center; }
+  .logo img { height: 40px; }
+
+  /* Nút Hamburger hiện ra */
+  .mobileMenuBtn {
+    display: block !important;
+    order: 2;
+    z-index: 1001;
+  }
+
+  /* Search xuống hàng 2 */
+  .searchContainer {
+    display: flex !important;
+    order: 3;
+    flex: 0 0 100%;
+    margin: 10px 0 0 0 !important;
+    max-width: 100%;
+    z-index: 5;
+  }
+
+  /* Menu thả xuống */
+  .menu {
+    display: none;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    z-index: 9999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-top: 1px solid #eee;
+  }
+
+  .menu.menuActive { display: flex !important; }
+  .menu li {
+    width: 100% !important;
+    height: auto !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    background-color: #ffffff !important;
+  }
+  .menu li a {
+    padding: 15px 20px !important;
+    display: block !important;
+    text-align: left !important;
+    background-color: #ffffff !important;
+    font-size: 14px;
+    color: #333 !important;
+    letter-spacing: normal;
+  }
+}
